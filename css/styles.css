@@ -137,6 +137,102 @@ button {
   padding: 96px clamp(20px, 6vw, 86px);
 }
 
+.webinar-hero {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(7, 20, 38, 0.96), rgba(7, 20, 38, 0.74)),
+    url("img/students_applications.png") center/cover;
+  color: var(--white);
+  display: grid;
+  gap: 44px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+  min-height: 680px;
+  padding: 100px clamp(20px, 6vw, 86px);
+}
+
+.webinar-hero h1 {
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5.4vw, 5.2rem);
+  line-height: 0.98;
+  max-width: 980px;
+}
+
+.webinar-hero .lead {
+  max-width: 760px;
+}
+
+.webinar-panel,
+.webinar-thank-you {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(201, 162, 77, 0.28);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  display: grid;
+  gap: 16px;
+  padding: 30px;
+}
+
+.webinar-panel h2,
+.webinar-thank-you h2 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  line-height: 1.12;
+}
+
+.webinar-points {
+  display: grid;
+  gap: 10px;
+  max-width: none;
+}
+
+.webinar-points li {
+  background: var(--soft);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.webinar-learn-list {
+  margin: auto;
+  max-width: 1000px;
+}
+
+.webinar-bonus {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+}
+
+.webinar-bonus h2 {
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.08;
+  max-width: 980px;
+}
+
+.webinar-form-section {
+  display: grid;
+  justify-items: center;
+}
+
+.webinar-form,
+.webinar-thank-you {
+  max-width: 760px;
+  width: 100%;
+}
+
+.webinar-thank-you {
+  text-align: center;
+}
+
+.form-note {
+  font-size: 0.92rem;
+}
+
 .hero h1,
 .page-hero h1,
 .section-heading h2,
@@ -1001,6 +1097,7 @@ textarea {
 
 @media (max-width: 1050px) {
   .hero,
+  .webinar-hero,
   .split,
   .page-hero.image-right,
   .product-feature,
@@ -1010,6 +1107,11 @@ textarea {
   }
 
   .hero {
+    min-height: auto;
+  }
+
+  .webinar-hero {
+    grid-template-columns: 1fr;
     min-height: auto;
   }
 
@@ -1100,6 +1202,7 @@ textarea {
   }
 
   .hero,
+  .webinar-hero,
   .section,
   .page-hero,
   .final-cta,
@@ -1110,6 +1213,15 @@ textarea {
 
   .hero {
     padding-top: 70px;
+  }
+
+  .webinar-hero {
+    padding-top: 70px;
+  }
+
+  .webinar-bonus {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .button-row,
