@@ -624,7 +624,7 @@ button {
 
 .comparison-card .check-list li::before {
   color: var(--gold-dark);
-  content: "✓";
+  content: "✅";
   font-weight: 800;
 }
 
