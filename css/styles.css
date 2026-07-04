@@ -611,6 +611,23 @@ button {
   color: var(--ink);
 }
 
+.comparison-card .check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.comparison-card .check-list li {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 22px 1fr;
+}
+
+.comparison-card .check-list li::before {
+  color: var(--gold-dark);
+  content: "✓";
+  font-weight: 800;
+}
+
 .comparison-card.highlight {
   border-color: var(--gold);
   box-shadow: var(--shadow);
