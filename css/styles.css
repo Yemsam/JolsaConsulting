@@ -669,6 +669,12 @@ button {
   padding: 16px;
 }
 
+.trust-points.webinar-points li {
+  background: var(--soft);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
