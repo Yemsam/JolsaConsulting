@@ -129,7 +129,7 @@ button {
   background:
     linear-gradient(90deg, rgba(7, 20, 38, 0.96), rgba(7, 20, 38, 0.72)),
     /* Original image: https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80 */
-    url("../img/optimized/students_applications.jpg") center/cover;
+    url("../img/students_applications.jpg") center/cover;
   color: var(--white);
   display: grid;
   gap: 56px;
@@ -142,7 +142,7 @@ button {
   align-items: center;
   background:
     linear-gradient(90deg, rgba(7, 20, 38, 0.96), rgba(7, 20, 38, 0.74)),
-    url("../img/optimized/students_applications.jpg") center/cover;
+    url("../img/students_applications.jpg") center/cover;
   color: var(--white);
   display: grid;
   gap: 44px;
