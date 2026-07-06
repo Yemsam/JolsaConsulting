@@ -1,4 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
+const loadPartial = async (selector, url) => {
+  const targets = document.querySelectorAll(selector);
+
+  if (!targets.length) {
+    return;
+  }
+
+  try {
+    const response = await fetch(url, { cache: "no-cache" });
+
+    if (!response.ok) {
+      throw new Error(`Unable to load ${url}`);
+    }
+
+    const html = await response.text();
+    targets.forEach((target) => {
+      target.outerHTML = html;
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const initNavigation = () => {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
 
@@ -27,4 +50,21 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
+};
+
+const setCurrentYear = () => {
+  document.querySelectorAll("[data-current-year]").forEach((target) => {
+    target.textContent = new Date().getFullYear();
+  });
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await Promise.all([
+    loadPartial("[data-site-header]", "header.html"),
+    loadPartial("[data-site-footer]", "footer.html"),
+    loadPartial("[data-testimonials]", "testimonials.html"),
+  ]);
+
+  initNavigation();
+  setCurrentYear();
 });

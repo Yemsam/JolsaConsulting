@@ -823,6 +823,81 @@ button {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.testimonials-showcase {
+  overflow: hidden;
+}
+
+.testimonial-hero {
+  margin: 0 auto 30px;
+  max-width: 920px;
+  text-align: center;
+}
+
+.testimonial-hero h2 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.04;
+}
+
+.testimonial-hero p {
+  color: var(--muted);
+  margin: 18px auto 0;
+  max-width: 720px;
+}
+
+.testimonial-faces {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 0 auto 34px;
+  max-width: 720px;
+}
+
+.testimonial-faces img {
+  aspect-ratio: 1;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 14px 30px rgba(7, 20, 38, 0.14);
+  height: 78px;
+  object-fit: cover;
+  width: 78px;
+}
+
+.testimonial-faces img:nth-child(even) {
+  margin-top: 20px;
+}
+
+.testimonial-wall {
+  align-items: start;
+  grid-auto-flow: dense;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.testimonial-wall blockquote {
+  background: var(--white);
+  box-shadow: 0 16px 38px rgba(7, 20, 38, 0.08);
+  min-height: 100%;
+  position: relative;
+}
+
+.testimonial-wall blockquote::before {
+  color: rgba(201, 162, 77, 0.22);
+  content: "\201C";
+  font-family: var(--serif);
+  font-size: 4rem;
+  left: 22px;
+  line-height: 1;
+  position: absolute;
+  top: 8px;
+}
+
+.testimonial-wall blockquote:nth-child(2),
+.testimonial-wall blockquote:nth-child(5) {
+  margin-top: 26px;
+}
+
 blockquote {
   background: var(--soft);
   border: 1px solid var(--line);
@@ -1099,16 +1174,21 @@ textarea {
 }
 
 .site-footer {
-  align-items: start;
   background: var(--navy);
   color: var(--white);
+  display: grid;
+  gap: 26px;
+  padding: 38px clamp(20px, 6vw, 86px) 24px;
+}
+
+.footer-main {
+  align-items: start;
   display: flex;
   gap: 28px;
   justify-content: space-between;
-  padding: 38px clamp(20px, 6vw, 86px);
 }
 
-.site-footer div:last-child {
+.footer-links {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -1117,6 +1197,22 @@ textarea {
 
 .site-footer a {
   color: rgba(255, 255, 255, 0.86);
+}
+
+.footer-bottom {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.footer-designer {
+  color: var(--gold) !important;
+  font-weight: 800;
 }
 
 @media (max-width: 1050px) {
@@ -1249,8 +1345,9 @@ textarea {
   }
 
   .button-row,
-  .site-footer,
-  .site-footer div:last-child {
+  .footer-main,
+  .footer-links,
+  .footer-bottom {
     align-items: stretch;
     flex-direction: column;
   }
@@ -1316,6 +1413,24 @@ textarea {
     left: auto;
     right: 18px;
     text-align: left;
+  }
+
+  .testimonial-faces {
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .testimonial-faces img {
+    flex: 0 0 auto;
+    height: 64px;
+    width: 64px;
+  }
+
+  .testimonial-wall blockquote:nth-child(2),
+  .testimonial-wall blockquote:nth-child(5) {
+    margin-top: 0;
   }
 }
 

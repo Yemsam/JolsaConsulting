@@ -20,26 +20,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.html"
-        ><img src="img/logo.png" alt="JS Consulting"
-      /></a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="services.html">Services</a>
-        <a href="digital-products.html">Products</a>
-        <a href="free-tools.html">Free tools</a>
-        <a href="contact.html">Contact</a>
-        <a href="booking.html" class="nav-cta">Book now</a>
-      </nav>
-    </header>
+    <div data-site-header></div>
 
     <main>
       <section class="webinar-hero">
@@ -296,25 +277,7 @@
       aria-label="Chat with JS Consulting on WhatsApp"
       >WhatsApp</a
     >
-    <footer class="site-footer">
-      <div>
-        <a
-          class="footer-brand"
-          href="index.html"
-          aria-label="JS Consulting Home"
-          ><img class="footer-logo" src="img/logo.png" alt="JS Consulting"
-        /></a>
-        <p>
-          Graduate school, scholarship, CV, SOP, and application-readiness
-          support.
-        </p>
-      </div>
-      <div>
-        <a href="services.html">Services</a>
-        <a href="booking.html">Book consultation</a>
-        <a href="privacy.html">Privacy policy</a>
-      </div>
-    </footer>
+    <div data-site-footer></div>
     <script src="script.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
