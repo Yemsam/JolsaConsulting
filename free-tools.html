@@ -1,16 +1,130 @@
 <!doctype html>
 <html lang="en">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Free CV score checker, scholarship match quiz, Japa readiness score, SOP checklist, and visa document checklist from JS Consulting." /><title>Free Tools | JS Consulting</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" /><link rel="icon" type="image/png" href="img/logo.png" /><link rel="stylesheet" href="css/styles.css" /></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Free CV score checker, scholarship match quiz, Japa readiness score, SOP checklist, and visa document checklist from JS Consulting."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Free Tools | JS Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
   <body>
     <div data-site-header></div>
     <main>
-      <section class="page-hero"><p class="eyebrow">Lead-generation tools</p><h1>Check your readiness before your next submission</h1><p>Each tool collects name and email before showing results. Connect the form action to Mailchimp, ConvertKit, Brevo, HubSpot, or your CRM.</p></section>
+      <section class="page-hero">
+        <p class="eyebrow"></p>
+        <h1>Check your readiness before your next submission</h1>
+      </section>
       <section class="section cream tools-grid">
-        <form class="tool-card" id="cv-score"><h2>CV Score Checker</h2><input required placeholder="Full name" /><input required type="email" placeholder="Email address" /><label><input type="checkbox" /> My CV has measurable achievements</label><label><input type="checkbox" /> My CV is tailored to one target role</label><label><input type="checkbox" /> My CV uses clean, ATS-friendly formatting</label><button class="btn primary" type="button" data-tool="CV Score">Show my score</button><p class="result" aria-live="polite"></p></form>
-        <form class="tool-card" id="scholarship-match"><h2>Scholarship Match Quiz</h2><input required placeholder="Full name" /><input required type="email" placeholder="Email address" /><label><input type="checkbox" /> I know my target course and countries</label><label><input type="checkbox" /> I have strong academic or leadership evidence</label><label><input type="checkbox" /> I can meet deadlines in the next 3 months</label><button class="btn primary" type="button" data-tool="Scholarship Readiness">Show readiness</button><p class="result" aria-live="polite"></p></form>
-        <form class="tool-card"><h2>Japa Readiness Score</h2><input required placeholder="Full name" /><input required type="email" placeholder="Email address" /><label><input type="checkbox" /> I have a clear destination or opportunity goal</label><label><input type="checkbox" /> My documents are updated</label><label><input type="checkbox" /> I understand costs, timelines, and requirements</label><button class="btn primary" type="button" data-tool="Japa Readiness">Show score</button><p class="result" aria-live="polite"></p></form>
-        <form class="tool-card" id="sop-checklist"><h2>SOP Mistake Checklist</h2><input required placeholder="Full name" /><input required type="email" placeholder="Email address" /><label><input type="checkbox" /> My SOP names specific program fit</label><label><input type="checkbox" /> My goals are clear and realistic</label><label><input type="checkbox" /> My draft avoids copied or generic language</label><button class="btn primary" type="button" data-tool="SOP Checklist">Check my SOP</button><p class="result" aria-live="polite"></p></form>
-        <form class="tool-card"><h2>Visa Document Checklist</h2><input required placeholder="Full name" /><input required type="email" placeholder="Email address" /><label><input type="checkbox" /> I have reviewed official requirements</label><label><input type="checkbox" /> My financial documents are organized</label><label><input type="checkbox" /> My documents tell a consistent story</label><button class="btn primary" type="button" data-tool="Visa Readiness">Check documents</button><p class="result" aria-live="polite"></p></form>
+        <form class="tool-card" id="cv-score">
+          <h2>CV Score Checker</h2>
+          <input required placeholder="Full name" /><input
+            required
+            type="email"
+            placeholder="Email address"
+          /><label
+            ><input type="checkbox" /> My CV has measurable achievements</label
+          ><label
+            ><input type="checkbox" /> My CV is tailored to one target
+            role</label
+          ><label
+            ><input type="checkbox" /> My CV uses clean, ATS-friendly
+            formatting</label
+          ><button class="btn primary" type="button" data-tool="CV Score">
+            Show my score
+          </button>
+          <p class="result" aria-live="polite"></p>
+        </form>
+        <form class="tool-card" id="scholarship-match">
+          <h2>Scholarship Match Quiz</h2>
+          <input required placeholder="Full name" /><input
+            required
+            type="email"
+            placeholder="Email address"
+          /><label
+            ><input type="checkbox" /> I know my target course and
+            countries</label
+          ><label
+            ><input type="checkbox" /> I have strong academic or leadership
+            evidence</label
+          ><label
+            ><input type="checkbox" /> I can meet deadlines in the next 3
+            months</label
+          ><button
+            class="btn primary"
+            type="button"
+            data-tool="Scholarship Readiness"
+          >
+            Show readiness
+          </button>
+          <p class="result" aria-live="polite"></p>
+        </form>
+        <form class="tool-card">
+          <h2>Japa Readiness Score</h2>
+          <input required placeholder="Full name" /><input
+            required
+            type="email"
+            placeholder="Email address"
+          /><label
+            ><input type="checkbox" /> I have a clear destination or opportunity
+            goal</label
+          ><label><input type="checkbox" /> My documents are updated</label
+          ><label
+            ><input type="checkbox" /> I understand costs, timelines, and
+            requirements</label
+          ><button class="btn primary" type="button" data-tool="Japa Readiness">
+            Show score
+          </button>
+          <p class="result" aria-live="polite"></p>
+        </form>
+        <form class="tool-card" id="sop-checklist">
+          <h2>SOP Mistake Checklist</h2>
+          <input required placeholder="Full name" /><input
+            required
+            type="email"
+            placeholder="Email address"
+          /><label
+            ><input type="checkbox" /> My SOP names specific program fit</label
+          ><label
+            ><input type="checkbox" /> My goals are clear and realistic</label
+          ><label
+            ><input type="checkbox" /> My draft avoids copied or generic
+            language</label
+          ><button class="btn primary" type="button" data-tool="SOP Checklist">
+            Check my SOP
+          </button>
+          <p class="result" aria-live="polite"></p>
+        </form>
+        <form class="tool-card">
+          <h2>Visa Document Checklist</h2>
+          <input required placeholder="Full name" /><input
+            required
+            type="email"
+            placeholder="Email address"
+          /><label
+            ><input type="checkbox" /> I have reviewed official
+            requirements</label
+          ><label
+            ><input type="checkbox" /> My financial documents are
+            organized</label
+          ><label
+            ><input type="checkbox" /> My documents tell a consistent
+            story</label
+          ><button class="btn primary" type="button" data-tool="Visa Readiness">
+            Check documents
+          </button>
+          <p class="result" aria-live="polite"></p>
+        </form>
       </section>
     </main>
     <script>
@@ -20,13 +134,22 @@
           const total = form.querySelectorAll("label input").length;
           const checked = form.querySelectorAll("label input:checked").length;
           const score = Math.round((checked / total) * 100);
-          const message = score >= 70 ? "Strong start. Book a review to polish the final details." : "You have gaps to close. A consultation can help you prioritize quickly.";
-          form.querySelector(".result").textContent = `${button.dataset.tool}: ${score}%. ${message}`;
+          const message =
+            score >= 70
+              ? "Strong start. Book a review to polish the final details."
+              : "You have gaps to close. A consultation can help you prioritize quickly.";
+          form.querySelector(".result").textContent =
+            `${button.dataset.tool}: ${score}%. ${message}`;
         });
       });
     </script>
     <div data-site-footer></div>
-    <a class="whatsapp-float" href="https://wa.me/2348063571988" aria-label="Chat with JS Consulting on WhatsApp">WhatsApp</a>
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/2348063571988"
+      aria-label="Chat with JS Consulting on WhatsApp"
+      >WhatsApp</a
+    >
     <script src="script.js" defer></script>
   </body>
 </html>
