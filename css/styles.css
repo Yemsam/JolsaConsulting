@@ -1204,10 +1204,12 @@ textarea {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.72);
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 12px 24px;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 20px;
+  text-align: center;
 }
 
 .footer-designer {
@@ -1346,8 +1348,7 @@ textarea {
 
   .button-row,
   .footer-main,
-  .footer-links,
-  .footer-bottom {
+  .footer-links {
     align-items: stretch;
     flex-direction: column;
   }
