@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Choose a flexible payment option for JS Consulting products and services, including PayPal, Paystack, bank transfer, and other payment methods."
+    />
+    <title>Payment Options | JS Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div data-site-header></div>
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Flexible payment</p>
+        <h1>Choose the payment method that works best for you</h1>
+        <p>
+          Use this page to pay for digital products, consultations, and service
+          packages. Payment links and account details are placeholders for now
+          and can be updated here later.
+        </p>
+      </section>
+
+      <section class="section cream">
+        <div class="payment-layout">
+          <aside class="payment-summary">
+            <p class="eyebrow">Your order</p>
+            <h2 id="selected-product">Payment for JS Consulting</h2>
+            <p>
+              If you arrived from a product page, your selected item will appear
+              here. If not, choose the product or service you want to pay for
+              and continue with any available option below.
+            </p>
+            <label for="payment-item">Product or service</label>
+            <select id="payment-item" name="payment-item">
+              <option value="">Select product or service</option>
+              <option>The Japa Application Toolkit</option>
+              <option>Winning CV Template Pack</option>
+              <option>SOP & Personal Statement Template Pack</option>
+              <option>Scholarship Essay Template Pack</option>
+              <option>Visa Document Checklist</option>
+              <option>Professor Email Template Pack</option>
+              <option>Scholarship Tracker Spreadsheet</option>
+              <option>Consultation or service package</option>
+            </select>
+            <p class="form-note">
+              After payment, send your name, email address, selected product,
+              and payment confirmation so your order can be processed.
+            </p>
+          </aside>
+
+          <div class="payment-options">
+            <article class="payment-card">
+              <span>01</span>
+              <h2>Paystack</h2>
+              <p>
+                Placeholder for Paystack checkout. Add your live Paystack
+                payment link here when ready.
+              </p>
+              <a class="btn primary" href="#">Pay with Paystack</a>
+            </article>
+            <article class="payment-card">
+              <span>02</span>
+              <h2>PayPal</h2>
+              <p>
+                Placeholder for PayPal checkout. Add your PayPal.Me link,
+                invoice link, or hosted checkout URL here.
+              </p>
+              <a class="btn primary" href="#">Pay with PayPal</a>
+            </article>
+            <article class="payment-card">
+              <span>03</span>
+              <h2>Bank Transfer</h2>
+              <p>
+                Account name, bank name, and account number will be added here.
+                Clients can send proof of payment after transfer.
+              </p>
+              <a class="btn secondary" href="contact.html">Send payment proof</a>
+            </article>
+            <article class="payment-card">
+              <span>04</span>
+              <h2>Other Payment Options</h2>
+              <p>
+                Placeholder for card payment, mobile money, Flutterwave, Stripe,
+                or any additional option you decide to support.
+              </p>
+              <a class="btn secondary" href="contact.html">Ask for another option</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2>Simple steps after payment</h2>
+        </div>
+        <div class="card-grid three">
+          <article class="mini-card">
+            <h2>1. Choose your option</h2>
+            <p>Select Paystack, PayPal, bank transfer, or another available method.</p>
+          </article>
+          <article class="mini-card">
+            <h2>2. Complete payment</h2>
+            <p>Use the payment link or account details provided on this page.</p>
+          </article>
+          <article class="mini-card">
+            <h2>3. Confirm your order</h2>
+            <p>
+              Send your payment confirmation and order details so delivery can
+              begin.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/2348063571988"
+      aria-label="Chat with JS Consulting on WhatsApp"
+      >WhatsApp</a
+    >
+    <script src="script.js" defer></script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get("product");
+      const heading = document.querySelector("#selected-product");
+      const select = document.querySelector("#payment-item");
+
+      if (product && heading && select) {
+        heading.textContent = `Payment for ${product}`;
+
+        const matchingOption = Array.from(select.options).find(
+          (option) => option.textContent === product,
+        );
+
+        if (matchingOption) {
+          select.value = matchingOption.value;
+        }
+      }
+    </script>
+  </body>
+</html>

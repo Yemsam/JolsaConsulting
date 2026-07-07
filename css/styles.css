@@ -750,11 +750,66 @@ button {
 .split,
 .page-hero.image-right,
 .product-feature,
-.portal-layout {
+.portal-layout,
+.payment-layout {
   align-items: center;
   display: grid;
   gap: 44px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.payment-layout {
+  align-items: start;
+}
+
+.payment-summary,
+.payment-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 34px rgba(7, 20, 38, 0.06);
+  padding: 28px;
+}
+
+.payment-summary {
+  display: grid;
+  gap: 14px;
+  position: sticky;
+  top: 118px;
+}
+
+.payment-summary h2,
+.payment-card h2 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  line-height: 1.12;
+}
+
+.payment-summary label {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.payment-options {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.payment-card {
+  display: grid;
+  gap: 14px;
+}
+
+.payment-card span {
+  color: var(--gold-dark);
+  font-weight: 800;
+}
+
+.payment-card p,
+.payment-summary p {
+  color: var(--muted);
 }
 
 .feature-list {
@@ -1303,8 +1358,13 @@ textarea {
   .page-hero.image-right,
   .product-feature,
   .portal-layout,
+  .payment-layout,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .payment-summary {
+    position: static;
   }
 
   .hero {
@@ -1470,6 +1530,7 @@ textarea {
   .pricing-grid,
   .product-grid,
   .tools-grid,
+  .payment-options,
   .testimonial-grid,
   .portal-board {
     grid-template-columns: 1fr;
@@ -1480,6 +1541,8 @@ textarea {
   .price-card,
   .product-card,
   .tool-card,
+  .payment-card,
+  .payment-summary,
   .login-card,
   .calendar-placeholder,
   .status-card,
