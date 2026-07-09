@@ -189,7 +189,13 @@
           <h2>Reserve your free seat</h2>
           <p>Complete the form. Limited seats available</p>
         </div>
-        <form class="intake-form webinar-form" data-webinar-form>
+        <form
+          class="intake-form webinar-form"
+          data-webinar-form
+          action="https://formspree.io/f/xzdlnblv"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New webinar registration" />
           <input name="full_name" placeholder="Full name" required />
           <input
             name="email"
