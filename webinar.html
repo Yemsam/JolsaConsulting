@@ -195,15 +195,29 @@
           action="https://formspree.io/f/xzdlnblv"
           method="POST"
         >
-          <input type="hidden" name="_subject" value="New webinar registration" />
-          <input name="full_name" placeholder="Full name" required />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New webinar registration"
+          />
+          <div class="form-row two">
+            <input name="first_name" placeholder="First name" required />
+            <input name="last_name" placeholder="Last name" required />
+          </div>
           <input
             name="email"
             type="email"
             placeholder="Email address"
             required
           />
-          <input name="whatsapp" placeholder="WhatsApp number" required />
+          <input
+            name="whatsapp"
+            type="tel"
+            placeholder="WhatsApp number with country code, e.g. +2348012345678"
+            pattern="^\+[1-9]\d{7,14}$"
+            title="Enter the number in international format, starting with + and country code."
+            required
+          />
           <input name="location" placeholder="Current country/city" required />
           <select name="target_level" required>
             <option value="">Target level</option>
@@ -219,22 +233,15 @@
             required
           ></textarea>
           <button class="btn primary" type="submit">Reserve My Seat</button>
+          <p class="form-status" data-webinar-status aria-live="polite"></p>
         </form>
-        <!--<div class="webinar-thank-you" data-webinar-thank-you hidden>
+        <div class="webinar-thank-you" data-webinar-thank-you hidden>
           <h2>Thank you for registering.</h2>
           <p>
-            Your seat has been reserved. Join the private WhatsApp group to
-            receive the webinar link, reminders, and bonus checklist.
+            Your seat has been reserved. We have received your details and will
+            contact you with the webinar information.
           </p>
-          <a
-            class="btn primary"
-            data-webinar-whatsapp
-            href="#"
-            target="_blank"
-            rel="noopener"
-            >Join the WhatsApp Group</a
-          >
-        </div>-->
+        </div>
       </section>
 
       <section class="section">
@@ -283,21 +290,50 @@
     <script src="script.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const groupLink = "https://chat.whatsapp.com/REPLACE_WITH_GROUP_INVITE";
         const form = document.querySelector("[data-webinar-form]");
         const thankYou = document.querySelector("[data-webinar-thank-you]");
-        const whatsappLink = document.querySelector("[data-webinar-whatsapp]");
+        const status = document.querySelector("[data-webinar-status]");
+        const submitButton = form?.querySelector('button[type="submit"]');
 
-        if (!form || !thankYou || !whatsappLink) {
+        if (!form || !thankYou || !status || !submitButton) {
           return;
         }
 
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", async (event) => {
           event.preventDefault();
-          whatsappLink.href = groupLink;
-          form.hidden = true;
-          thankYou.hidden = false;
-          thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          if (!form.reportValidity()) {
+            return;
+          }
+
+          status.textContent = "";
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (!response.ok) {
+              throw new Error("Form submission failed");
+            }
+
+            form.reset();
+            form.hidden = true;
+            thankYou.hidden = false;
+            thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
+          } catch (error) {
+            status.textContent =
+              "Something went wrong. Please try again or contact us on WhatsApp.";
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Reserve My Seat";
+          }
         });
       });
     </script>

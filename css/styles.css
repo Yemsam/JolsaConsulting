@@ -226,12 +226,26 @@ button {
   width: 100%;
 }
 
+.form-row {
+  display: grid;
+  gap: 14px;
+}
+
+.form-row.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .webinar-thank-you {
   text-align: center;
 }
 
 .form-note {
   font-size: 0.92rem;
+}
+
+.form-status {
+  color: var(--muted);
+  margin: 0;
 }
 
 .hero h1,
@@ -1490,6 +1504,10 @@ textarea {
   .footer-links {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .form-row.two {
+    grid-template-columns: 1fr;
   }
 
   .btn {
