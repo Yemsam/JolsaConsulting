@@ -176,15 +176,22 @@
             value="New webinar registration"
           />
           <label
-            >Full name <span aria-hidden="true">*</span>
-            <input name="full_name" autocomplete="name" required />
+            ><span class="form-label-text">Full name <span aria-hidden="true">*</span></span>
+            <input
+              name="full_name"
+              autocomplete="name"
+              minlength="3"
+              pattern="^\s*\S+(?:\s+\S+)+\s*$"
+              title="Please enter your first and last name."
+              required
+            />
           </label>
           <label
-            >Email address <span aria-hidden="true">*</span>
+            ><span class="form-label-text">Email address <span aria-hidden="true">*</span></span>
             <input name="email" type="email" autocomplete="email" required />
           </label>
           <label
-            >WhatsApp number <span aria-hidden="true">*</span>
+            ><span class="form-label-text">WhatsApp number <span aria-hidden="true">*</span></span>
             <small>Include your country code (e.g. +2348012345678)</small>
             <input
               name="whatsapp"

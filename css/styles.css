@@ -249,6 +249,10 @@ button {
   gap: 7px;
 }
 
+.webinar-form .form-label-text {
+  display: inline;
+}
+
 .webinar-form label small {
   color: var(--muted);
   font-weight: 400;
