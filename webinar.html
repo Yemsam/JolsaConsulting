@@ -23,7 +23,10 @@
     <div data-site-header></div>
 
     <main>
-      <section class="webinar-banner" aria-label="Study Abroad the Right Way webinar">
+      <section
+        class="webinar-banner"
+        aria-label="Study Abroad the Right Way webinar"
+      >
         <img
           src="img/webinar_website_banner.png"
           alt="Free webinar: Study Abroad the Right Way — plan smart, apply strong, achieve your goals"
@@ -158,7 +161,7 @@
       >
         <div class="section-heading">
           <p class="eyebrow">Free registration</p>
-          <h2>Reserve your free seat</h2>
+          <h2>Reserve your seat</h2>
           <p>Complete the form. Limited seats available</p>
         </div>
         <form
@@ -172,43 +175,137 @@
             name="_subject"
             value="New webinar registration"
           />
-          <label>Full name <span aria-hidden="true">*</span>
+          <label
+            >Full name <span aria-hidden="true">*</span>
             <input name="full_name" autocomplete="name" required />
           </label>
-          <label>Email address <span aria-hidden="true">*</span>
+          <label
+            >Email address <span aria-hidden="true">*</span>
             <input name="email" type="email" autocomplete="email" required />
           </label>
-          <label>WhatsApp number <span aria-hidden="true">*</span>
+          <label
+            >WhatsApp number <span aria-hidden="true">*</span>
             <small>Include your country code (e.g. +2348012345678)</small>
-            <input name="whatsapp" type="tel" autocomplete="tel" pattern="^\+[1-9]\d{7,14}$" title="Enter the number in international format, starting with + and country code." required />
+            <input
+              name="whatsapp"
+              type="tel"
+              autocomplete="tel"
+              pattern="^\+[1-9]\d{7,14}$"
+              title="Enter the number in international format, starting with + and country code."
+              required
+            />
           </label>
           <fieldset data-interests-group>
-            <legend>What best describes you? <span aria-hidden="true">*</span></legend>
-            <label><input type="radio" name="participant_type" value="Student" required /> Student</label>
-            <label><input type="radio" name="participant_type" value="Graduate" /> Graduate</label>
-            <label><input type="radio" name="participant_type" value="Working Professional" /> Working Professional</label>
-            <label><input type="radio" name="participant_type" value="Other" /> Other</label>
+            <legend>
+              What best describes you? <span aria-hidden="true">*</span>
+            </legend>
+            <label
+              ><input
+                type="radio"
+                name="participant_type"
+                value="Student"
+                required
+              />
+              Student</label
+            >
+            <label
+              ><input type="radio" name="participant_type" value="Graduate" />
+              Graduate</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="participant_type"
+                value="Working Professional"
+              />
+              Working Professional</label
+            >
+            <label
+              ><input type="radio" name="participant_type" value="Other" />
+              Other</label
+            >
           </fieldset>
           <fieldset>
-            <legend>What are you most interested in? (You can select more than one) <span aria-hidden="true">*</span></legend>
-            <label><input type="checkbox" name="interests[]" value="Studying Abroad (General Guidance)" /> Studying Abroad (General Guidance)</label>
-            <label><input type="checkbox" name="interests[]" value="Scholarship Opportunities" /> Scholarship Opportunities</label>
-            <label><input type="checkbox" name="interests[]" value="University Application Process" /> University Application Process</label>
-            <label><input type="checkbox" name="interests[]" value="Visa Readiness" /> Visa Readiness</label>
-            <label><input type="checkbox" name="interests[]" value="Other" /> Other</label>
+            <legend>
+              What are you most interested in? (You can select more than one)
+              <span aria-hidden="true">*</span>
+            </legend>
+            <label
+              ><input
+                type="checkbox"
+                name="interests[]"
+                value="Studying Abroad (General Guidance)"
+              />
+              Studying Abroad (General Guidance)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="interests[]"
+                value="Scholarship Opportunities"
+              />
+              Scholarship Opportunities</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="interests[]"
+                value="University Application Process"
+              />
+              University Application Process</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="interests[]"
+                value="Visa Readiness"
+              />
+              Visa Readiness</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="Other" />
+              Other</label
+            >
           </fieldset>
-          <label>Which country/countries are you interested in studying in?
+          <label
+            >Which country/countries are you interested in studying in?
             <input name="countries_of_interest" />
           </label>
-          <label>What is your biggest challenge right now in your study abroad journey?
+          <label
+            >What is your biggest challenge right now in your study abroad
+            journey?
             <textarea name="biggest_challenge"></textarea>
           </label>
           <fieldset>
-            <legend>How did you hear about this webinar? <span aria-hidden="true">*</span></legend>
-            <label><input type="radio" name="referral_source" value="Social Media" required /> Social Media</label>
-            <label><input type="radio" name="referral_source" value="Friend/Referral" /> Friend/Referral</label>
-            <label><input type="radio" name="referral_source" value="Website" /> Website</label>
-            <label><input type="radio" name="referral_source" value="Other" /> Other</label>
+            <legend>
+              How did you hear about this webinar?
+              <span aria-hidden="true">*</span>
+            </legend>
+            <label
+              ><input
+                type="radio"
+                name="referral_source"
+                value="Social Media"
+                required
+              />
+              Social Media</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="referral_source"
+                value="Friend/Referral"
+              />
+              Friend/Referral</label
+            >
+            <label
+              ><input type="radio" name="referral_source" value="Website" />
+              Website</label
+            >
+            <label
+              ><input type="radio" name="referral_source" value="Other" />
+              Other</label
+            >
           </fieldset>
           <button class="btn primary" type="submit">Reserve My Seat</button>
           <p class="form-status" data-webinar-status aria-live="polite"></p>
@@ -272,7 +369,9 @@
         const thankYou = document.querySelector("[data-webinar-thank-you]");
         const status = document.querySelector("[data-webinar-status]");
         const submitButton = form?.querySelector('button[type="submit"]');
-        const interestBoxes = form?.querySelectorAll('input[name="interests[]"]');
+        const interestBoxes = form?.querySelectorAll(
+          'input[name="interests[]"]',
+        );
 
         if (!form || !thankYou || !status || !submitButton) {
           return;
@@ -281,7 +380,10 @@
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
 
-          if (interestBoxes && !Array.from(interestBoxes).some((box) => box.checked)) {
+          if (
+            interestBoxes &&
+            !Array.from(interestBoxes).some((box) => box.checked)
+          ) {
             status.textContent = "Please select at least one area of interest.";
             interestBoxes[0].focus();
             return;
