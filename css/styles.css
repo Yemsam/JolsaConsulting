@@ -253,6 +253,10 @@ button {
   display: inline;
 }
 
+.webinar-form [hidden] {
+  display: none;
+}
+
 .webinar-form label small {
   color: var(--muted);
   font-weight: 400;

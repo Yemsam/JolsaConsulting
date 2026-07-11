@@ -270,9 +270,21 @@
               Visa Readiness</label
             >
             <label
-              ><input type="checkbox" name="interests[]" value="Other" />
+              ><input
+                type="checkbox"
+                name="interests[]"
+                value="Other"
+                data-other-interest-checkbox
+              />
               Other</label
             >
+            <label data-other-interest-field hidden
+              ><span class="form-label-text"
+                >Please specify your interest
+                <span aria-hidden="true">*</span></span
+              >
+              <input name="other_interest" disabled />
+            </label>
           </fieldset>
           <label
             >Which country/countries are you interested in studying in?
@@ -379,10 +391,33 @@
         const interestBoxes = form?.querySelectorAll(
           'input[name="interests[]"]',
         );
+        const otherInterestCheckbox = form?.querySelector(
+          "[data-other-interest-checkbox]",
+        );
+        const otherInterestField = form?.querySelector(
+          "[data-other-interest-field]",
+        );
+        const otherInterestInput = otherInterestField?.querySelector("input");
 
-        if (!form || !thankYou || !status || !submitButton) {
+        if (!form || !status || !submitButton) {
           return;
         }
+
+        otherInterestCheckbox?.addEventListener("change", () => {
+          const showField = otherInterestCheckbox.checked;
+
+          if (otherInterestField && otherInterestInput) {
+            otherInterestField.hidden = !showField;
+            otherInterestInput.disabled = !showField;
+            otherInterestInput.required = showField;
+
+            if (showField) {
+              otherInterestInput.focus();
+            } else {
+              otherInterestInput.value = "";
+            }
+          }
+        });
 
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
@@ -418,9 +453,13 @@
             }
 
             form.reset();
-            form.hidden = true;
-            thankYou.hidden = false;
-            thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (thankYou) {
+              form.hidden = true;
+              thankYou.hidden = false;
+              thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
+            } else {
+              status.textContent = "Thank you! Your seat has been reserved.";
+            }
           } catch (error) {
             status.textContent =
               "Something went wrong. Please try again or contact us on WhatsApp.";
