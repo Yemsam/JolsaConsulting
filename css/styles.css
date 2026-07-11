@@ -163,6 +163,23 @@ button {
   max-width: 760px;
 }
 
+.webinar-banner {
+  background: var(--navy);
+  position: relative;
+}
+
+.webinar-banner img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.webinar-banner .btn {
+  bottom: clamp(16px, 3vw, 40px);
+  position: absolute;
+  right: clamp(16px, 4vw, 64px);
+}
+
 .webinar-panel,
 .webinar-thank-you {
   background: rgba(255, 255, 255, 0.94);
@@ -224,6 +241,46 @@ button {
 .webinar-thank-you {
   max-width: 760px;
   width: 100%;
+}
+
+.webinar-form label {
+  display: grid;
+  font-weight: 600;
+  gap: 7px;
+}
+
+.webinar-form label small {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.webinar-form fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 18px;
+}
+
+.webinar-form legend {
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.webinar-form fieldset label {
+  align-items: center;
+  display: flex;
+  font-weight: 400;
+}
+
+.webinar-form input[type="checkbox"],
+.webinar-form input[type="radio"] {
+  accent-color: var(--gold);
+  height: 18px;
+  margin: 0;
+  min-height: 0;
+  width: 18px;
 }
 
 .form-row {
@@ -1492,6 +1549,11 @@ textarea {
 
   .webinar-hero {
     padding-top: 70px;
+  }
+
+  .webinar-banner .btn {
+    border-radius: 0;
+    position: static;
   }
 
   .webinar-bonus {
