@@ -34,6 +34,11 @@
         <a class="btn primary" href="#webinar-registration">Reserve My Seat</a>
       </section>
 
+      <div class="webinar-countdown-bar" data-registration-urgency>
+        <strong>Registration closes July 31:</strong>
+        <span data-registration-countdown>Loading countdown...</span>
+      </div>
+
       <section class="section cream">
         <div class="section-heading">
           <p class="eyebrow">Who should attend</p>
@@ -151,6 +156,10 @@
             Register for free and receive the Graduate School Application
             Readiness Checklist.
           </h2>
+          <p class="webinar-countdown-inline" data-registration-urgency>
+            <strong>Act now — registration closes in</strong>
+            <span data-registration-countdown>Loading countdown...</span>
+          </p>
         </div>
         <a class="btn primary" href="#webinar-registration">Reserve My Seat</a>
       </section>
@@ -163,6 +172,10 @@
           <p class="eyebrow">Free registration</p>
           <h2>Reserve your seat</h2>
           <p>Complete the form. Limited seats available</p>
+          <p class="webinar-countdown-card" data-registration-urgency>
+            <strong>Time left to register</strong>
+            <span data-registration-countdown>Loading countdown...</span>
+          </p>
         </div>
         <form
           class="intake-form webinar-form"
@@ -398,10 +411,66 @@
           "[data-other-interest-field]",
         );
         const otherInterestInput = otherInterestField?.querySelector("input");
+        const countdowns = document.querySelectorAll(
+          "[data-registration-countdown]",
+        );
+        const urgencyMessages = document.querySelectorAll(
+          "[data-registration-urgency]",
+        );
+        const registrationDeadline = new Date("2026-07-31T23:59:00+02:00");
+        let registrationClosed = false;
 
         if (!form || !status || !submitButton) {
           return;
         }
+
+        const closeRegistration = () => {
+          registrationClosed = true;
+          form.querySelectorAll("input, textarea, select, button").forEach(
+            (control) => {
+              control.disabled = true;
+            },
+          );
+          form.setAttribute("aria-disabled", "true");
+          form.classList.add("registration-closed");
+          submitButton.textContent = "Registration Closed";
+          status.textContent =
+            "Registration for this webinar closed on July 31, 2026 at 11:59 PM.";
+          status.classList.add("registration-closed-message");
+          urgencyMessages.forEach((message) => {
+            message.classList.add("is-closed");
+          });
+          countdowns.forEach((countdown) => {
+            countdown.textContent = "Registration closed";
+          });
+        };
+
+        const updateCountdown = () => {
+          const remaining = registrationDeadline.getTime() - Date.now();
+
+          if (remaining <= 0) {
+            closeRegistration();
+            return;
+          }
+
+          const days = Math.floor(remaining / 86400000);
+          const hours = Math.floor((remaining % 86400000) / 3600000);
+          const minutes = Math.floor((remaining % 3600000) / 60000);
+          const seconds = Math.floor((remaining % 60000) / 1000);
+          const countdownText = `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+
+          countdowns.forEach((countdown) => {
+            countdown.textContent = countdownText;
+          });
+        };
+
+        updateCountdown();
+        const countdownTimer = window.setInterval(() => {
+          updateCountdown();
+          if (registrationClosed) {
+            window.clearInterval(countdownTimer);
+          }
+        }, 1000);
 
         otherInterestCheckbox?.addEventListener("change", () => {
           const showField = otherInterestCheckbox.checked;
@@ -421,6 +490,14 @@
 
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
+
+          if (
+            registrationClosed ||
+            Date.now() >= registrationDeadline.getTime()
+          ) {
+            closeRegistration();
+            return;
+          }
 
           if (
             interestBoxes &&
@@ -464,8 +541,12 @@
             status.textContent =
               "Something went wrong. Please try again or contact us on WhatsApp.";
           } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = "Reserve My Seat";
+            if (Date.now() >= registrationDeadline.getTime()) {
+              closeRegistration();
+            } else {
+              submitButton.disabled = false;
+              submitButton.textContent = "Reserve My Seat";
+            }
           }
         });
       });

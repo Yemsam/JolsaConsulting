@@ -180,6 +180,69 @@ button {
   right: clamp(16px, 4vw, 64px);
 }
 
+.webinar-countdown-bar {
+  align-items: center;
+  background: #b42318;
+  color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  gap: 8px 14px;
+  justify-content: center;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.webinar-countdown-bar [data-registration-countdown],
+.webinar-countdown-inline [data-registration-countdown],
+.webinar-countdown-card [data-registration-countdown] {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.webinar-countdown-inline {
+  border-left: 5px solid #ef4444;
+  display: grid;
+  gap: 4px;
+  margin-top: 20px;
+  padding: 10px 14px;
+}
+
+.webinar-countdown-inline [data-registration-countdown] {
+  color: #ff8a80;
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+}
+
+.webinar-countdown-card {
+  background: #b42318;
+  border-radius: 10px;
+  color: var(--white);
+  display: grid;
+  gap: 4px;
+  margin: 18px auto 0;
+  max-width: 440px;
+  padding: 14px 20px;
+}
+
+.webinar-countdown-card [data-registration-countdown] {
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+[data-registration-urgency].is-closed {
+  background: #4b5563;
+  border-color: #9ca3af;
+}
+
+.webinar-form.registration-closed {
+  opacity: 0.72;
+}
+
+.registration-closed-message {
+  color: #b42318;
+  font-weight: 800;
+}
+
 .webinar-panel,
 .webinar-thank-you {
   background: rgba(255, 255, 255, 0.94);
