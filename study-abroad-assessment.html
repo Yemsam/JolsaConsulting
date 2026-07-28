@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Assess your study-abroad preparation and receive immediate guidance on your academic profile, course strategy, funding, scholarships, application documents, and visa readiness." />
+    <title>Free Study-Abroad Readiness Assessment | Jolsa Consulting</title>
+    <link rel="canonical" href="https://jolsaconsulting.com/study-abroad-assessment.html" />
+    <meta property="og:title" content="Free Study-Abroad Readiness Assessment | Jolsa Consulting" />
+    <meta property="og:description" content="Get immediate, private guidance on your study-abroad preparation, strengths, and next priorities." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jolsaconsulting.com/study-abroad-assessment.html" />
+    <meta property="og:image" content="https://jolsaconsulting.com/img/jolsa-consulting-banner.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/assessment.css" />
+  </head>
+  <body class="assessment-page">
+    <div data-site-header></div>
+    <main>
+      <section class="assessment-hero">
+        <div>
+          <p class="eyebrow">Free private assessment</p>
+          <h1>How Ready Are You to Study Abroad?</h1>
+          <p class="assessment-lead">Complete this free assessment to identify your current strengths, possible application weaknesses, and the areas you should improve before applying for admission, scholarships, or a student visa.</p>
+          <p class="hero-note">This assessment provides preliminary educational guidance based on the answers you submit. It does not guarantee admission, scholarship selection, or visa approval.</p>
+          <a class="btn primary" href="#assessment">Start My Free Assessment</a>
+        </div>
+        <div class="assessment-facts" aria-label="Assessment information">
+          <span>5–8 minutes</span><span>Immediate results</span><span>No payment required</span><span>No document upload required</span>
+        </div>
+      </section>
+
+      <section class="assessment-shell" id="assessment" aria-labelledby="assessment-title">
+        <div id="questionnaire">
+          <div class="assessment-intro">
+            <div><p class="eyebrow">Your readiness check</p><h2 id="assessment-title">Tell us where you are today</h2></div>
+            <label class="name-field" for="first-name">First name <span>(optional)</span><input id="first-name" name="first-name" type="text" maxlength="40" autocomplete="given-name" placeholder="e.g. Ola" /></label>
+          </div>
+          <p class="privacy-note">Your answers are processed in your browser for this initial assessment and are not submitted to Jolsa Consulting. Contact Jolsa directly if you would like a professional review.</p>
+          <div class="progress-copy"><strong id="progress-label">Section 1 of 6</strong><span id="progress-percent">17% complete</span></div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+          <form id="assessment-form" novalidate>
+            <div id="question-container"></div>
+            <p class="validation-message" id="validation-message" role="alert" aria-live="assertive"></p>
+            <div class="assessment-actions">
+              <button class="btn secondary" id="previous-button" type="button">Previous</button>
+              <button class="btn primary" id="next-button" type="button">Continue</button>
+            </div>
+          </form>
+        </div>
+
+        <section id="results" class="results" hidden aria-live="polite">
+          <div class="print-brand"><img src="img/logo.png" alt="Jolsa Consulting" /><strong>Jolsa Consulting</strong></div>
+          <div class="result-heading"><div><p class="eyebrow">Your personalised guidance</p><h2 id="result-title">Your Study-Abroad Readiness Result</h2><p id="result-summary"></p></div><div class="score-ring" id="score-ring"><span id="overall-score">0%</span><small>overall readiness</small></div></div>
+          <div class="readiness-level"><strong id="readiness-level"></strong><span id="readiness-message"></span></div>
+          <section class="result-section"><h3>Category breakdown</h3><div id="category-breakdown" class="category-breakdown"></div></section>
+          <div class="result-columns">
+            <section class="result-section"><h3>Your strongest areas</h3><div id="strengths" class="feedback-list"></div></section>
+            <section class="result-section"><h3>Priority improvement areas</h3><div id="priorities" class="feedback-list"></div></section>
+          </div>
+          <section class="result-section action-plan"><h3>Your next-step action plan</h3><ol id="action-plan"></ol></section>
+          <section class="service-recommendation"><p class="eyebrow">Recommended support</p><h3 id="service-name"></h3><p id="service-copy"></p><div class="button-row"><a class="btn primary" href="booking.html">Discuss My Results With Jolsa</a><a class="btn secondary" href="services.html">Explore Jolsa Services</a></div></section>
+          <div class="result-buttons"><button class="btn secondary" id="print-button" type="button">Print or Save My Result</button><button class="btn ghost-dark" id="retake-button" type="button">Retake Assessment</button></div>
+          <p class="results-disclaimer">This assessment provides preliminary educational guidance based on the answers you supplied. It is not a formal admission evaluation, scholarship decision, immigration assessment, or guarantee of admission, funding, or visa approval. Requirements vary by institution, scholarship provider, country, and immigration authority. Always confirm current requirements through the relevant official source.</p>
+        </section>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="script.js" defer></script>
+    <script src="js/assessment.js" defer></script>
+  </body>
+</html>
