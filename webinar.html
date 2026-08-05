@@ -35,7 +35,7 @@
       </section>
 
       <div class="webinar-countdown-bar" data-registration-urgency>
-        <strong>Registration closes August 5:</strong>
+        <strong>Registration closes August 7:</strong>
         <span data-registration-countdown>Loading countdown...</span>
       </div>
 
@@ -417,7 +417,7 @@
         const urgencyMessages = document.querySelectorAll(
           "[data-registration-urgency]",
         );
-        const registrationDeadline = new Date("2026-08-05T23:59:00+02:00");
+        const registrationDeadline = new Date("2026-08-07T23:59:00+02:00");
         let registrationClosed = false;
 
         if (!form || !status || !submitButton) {
@@ -435,7 +435,7 @@
           form.classList.add("registration-closed");
           submitButton.textContent = "Registration Closed";
           status.textContent =
-            "Registration for this webinar closed on August 5, 2026 at 11:59 PM.";
+            "Registration for this webinar closed on August 7, 2026 at 11:59 PM.";
           status.classList.add("registration-closed-message");
           urgencyMessages.forEach((message) => {
             message.classList.add("is-closed");
