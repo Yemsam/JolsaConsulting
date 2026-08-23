@@ -1,0 +1,68 @@
+{
+  "$comment": "Source of truth for the blog archive. scripts/build_blog_index.py reads this to regenerate blog.html and sitemap.xml — do not hand-edit blog.html's post list directly, edit this file instead and re-run the build script (or push, which triggers it automatically). New entries are added automatically by scripts/generate_scholarship_post.py.",
+  "posts": [
+    {
+      "slug": "blog-scholarships",
+      "title": "How to Build a Strong Scholarship Application",
+      "category": "Scholarships",
+      "meta_description": "Scholarship application guidance on eligibility, essays, referees, and timelines.",
+      "excerpt": "Funding search, essays, eligibility, referees, and application timelines.",
+      "date": "2026-06-01",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-career-growth",
+      "title": "How to Position Yourself for Better Career Opportunities",
+      "category": "Career Growth",
+      "meta_description": "Career growth guidance for applicants who want better jobs, stronger positioning, and clearer professional documents.",
+      "excerpt": "Job search strategy, interviews, LinkedIn, remote work, and professional positioning.",
+      "date": "2026-06-08",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-study-abroad",
+      "title": "Study Abroad Planning Without Confusion",
+      "category": "Study Abroad",
+      "meta_description": "Study abroad planning guidance for school selection, documents, deadlines, and application readiness.",
+      "excerpt": "School selection, document planning, country research, and admissions readiness.",
+      "date": "2026-06-15",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-visa-readiness",
+      "title": "How to Prepare a Clear Visa Document File",
+      "category": "Visa Readiness",
+      "meta_description": "Visa readiness guidance for organizing documents, finances, explanations, and interview preparation.",
+      "excerpt": "Document organization, financial clarity, interview prep, and common mistakes.",
+      "date": "2026-06-22",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-cv-tips",
+      "title": "CV Tips That Help Recruiters See Your Value",
+      "category": "CV Tips",
+      "meta_description": "CV tips for ATS formatting, achievements, keywords, and role-specific tailoring.",
+      "excerpt": "ATS formatting, achievement writing, keywords, and role-specific tailoring.",
+      "date": "2026-06-29",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-sop-tips",
+      "title": "SOP Tips for a Focused Personal Academic Story",
+      "category": "SOP Tips",
+      "meta_description": "SOP writing tips for academic fit, motivation, research goals, and personal narrative.",
+      "excerpt": "Academic fit, motivation, research goals, personal narrative, and editing.",
+      "date": "2026-07-06",
+      "source": "manual"
+    },
+    {
+      "slug": "blog-nigerian-applicant-guides",
+      "title": "A Nigerian Applicant Checklist for Global Opportunities",
+      "category": "Nigerian Applicant Guides",
+      "meta_description": "A Nigerian applicant checklist for transcripts, NYSC, references, proof of funds, and Japa planning.",
+      "excerpt": "NYSC, transcripts, references, proof of funds, and Japa planning topics.",
+      "date": "2026-07-13",
+      "source": "manual"
+    }
+  ]
+}

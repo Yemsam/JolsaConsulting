@@ -1,0 +1,37 @@
+name: Rebuild blog index
+
+# Keeps blog.html's "latest posts" list and sitemap.xml's blog entries in
+# sync with posts.json automatically. Runs whenever posts.json or any
+# blog-*.html post file changes on main — including when the weekly
+# scholarship-post PR (see weekly-scholarship-post.yml) gets merged.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts.json"
+      - "blog-*.html"
+      - "scripts/build_blog_index.py"
+      - "scripts/site_template.py"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild blog.html and sitemap.xml from posts.json
+        run: python3 scripts/build_blog_index.py
+
+      - name: Commit changes if any
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: rebuild blog index and sitemap from posts.json"
+          file_pattern: "blog.html sitemap.xml"
