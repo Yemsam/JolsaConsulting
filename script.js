@@ -68,3 +68,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   initNavigation();
   setCurrentYear();
 });
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
