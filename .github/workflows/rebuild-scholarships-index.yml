@@ -1,0 +1,38 @@
+name: Rebuild scholarships index
+
+# Keeps scholarships.html's card grid and sitemap.xml's scholarship-page
+# entries in sync with scholarships.json automatically. Runs whenever
+# scholarships.json or any scholarship-*.html page changes on main —
+# including when the weekly scholarship-listing PR (see
+# weekly-scholarship-post.yml) gets merged.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scholarships.json"
+      - "scholarship-*.html"
+      - "scripts/build_scholarships_index.py"
+      - "scripts/site_template.py"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild scholarships.html and sitemap.xml from scholarships.json
+        run: python3 scripts/build_scholarships_index.py
+
+      - name: Commit changes if any
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: rebuild scholarships index and sitemap from scholarships.json"
+          file_pattern: "scholarships.html sitemap.xml"

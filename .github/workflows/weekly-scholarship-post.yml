@@ -1,10 +1,11 @@
-name: Weekly scholarship post draft
+name: Weekly scholarship listing draft
 
-# Every week, searches for currently-open scholarships and drafts a new
-# blog post about them, then opens a pull request for human review.
+# Every week, searches for one currently-open (or opening-soon)
+# scholarship and drafts a new entry for the Scholarships hub
+# (scholarships.html), then opens a pull request for human review.
 # Nothing goes live automatically — merging the PR is the "publish"
-# step, and merging triggers rebuild-blog-index.yml to update the blog
-# archive and sitemap automatically.
+# step, and merging triggers rebuild-scholarships-index.yml to update
+# the Scholarships hub and sitemap automatically.
 #
 # Setup required (one-time):
 #   1. Repo Settings -> Secrets and variables -> Actions -> New repository
@@ -14,7 +15,7 @@ name: Weekly scholarship post draft
 #      branch and open a PR.
 #
 # To test it immediately instead of waiting for the schedule, go to the
-# Actions tab, select "Weekly scholarship post draft", and click
+# Actions tab, select "Weekly scholarship listing draft", and click
 # "Run workflow".
 on:
   schedule:
@@ -27,7 +28,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  draft-post:
+  draft-listing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -39,34 +40,37 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
-      - name: Generate scholarship post draft
+      - name: Generate scholarship listing draft
         id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 scripts/generate_scholarship_post.py
 
-      - name: Rebuild blog index locally (so the PR diff already includes it)
-        run: python3 scripts/build_blog_index.py
+      - name: Rebuild scholarships hub locally (so the PR diff already includes it)
+        run: python3 scripts/build_scholarships_index.py
 
       - name: Open pull request for review
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "content: draft weekly scholarship post (${{ steps.generate.outputs.slug }})"
-          branch: "auto/scholarship-post-${{ steps.generate.outputs.slug }}"
-          title: "[Review needed] New scholarship post: ${{ steps.generate.outputs.title }}"
+          commit-message: "content: draft weekly scholarship listing (${{ steps.generate.outputs.slug }})"
+          branch: "auto/scholarship-listing-${{ steps.generate.outputs.slug }}"
+          title: "[Review needed] New scholarship listing: ${{ steps.generate.outputs.title }}"
           body: |
-            This post was drafted automatically by the weekly scholarship
-            research pipeline. **Before merging**, please:
+            This scholarship listing was drafted automatically by the
+            weekly research pipeline. **Before merging**, please:
 
-            - Open the new `${{ steps.generate.outputs.slug }}.html` file in
-              the "Files changed" tab and read it.
-            - Click through to the official source link(s) cited in the post
-              and confirm the deadline, eligibility, and application link are
-              correct and current.
-            - Check the post reads naturally and matches the site's tone.
+            - Open the new `scholarship-${{ steps.generate.outputs.slug }}.html`
+              file and the new entry in `scholarships.json` in the "Files
+              changed" tab and read them.
+            - Click through to the official source link(s) cited and confirm
+              the deadline (**${{ steps.generate.outputs.deadline }}**),
+              eligibility, and application link are correct and current.
+            - Check the level/country filters and status are set correctly,
+              and that the page reads clearly and matches the site's tone.
 
-            Merging this PR publishes the post — the blog archive and
-            sitemap will update automatically once merged.
+            Merging this PR publishes the listing — the Scholarships hub
+            (scholarships.html) and sitemap will update automatically once
+            merged.
           labels: |
             auto-generated
             needs-review

@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
 """
-Weekly automated scholarship post generator for Jolsa Consulting.
+Weekly automated scholarship listing generator for Jolsa Consulting.
 
 What this does:
-  1. Asks Claude (with its web search tool switched on) to find 1-3
-     scholarships that are CURRENTLY OPEN for applications, with a real,
-     verifiable deadline and an official application link.
-  2. Has Claude draft a blog post about them in the site's existing tone
-     and format.
-  3. Writes the new post as blog-<slug>.html (same template as every
-     other post on the site), and appends an entry to posts.json.
+  1. Asks Claude (with its web search tool switched on) to find ONE
+     scholarship that is CURRENTLY OPEN (or opening soon) for applications,
+     with a real, verifiable deadline and an official application link.
+  2. Has Claude draft a clear, scholarshipregion.com-style detail page
+     about it: overview, benefits, eligibility, timeline, how to apply,
+     tips, and FAQs — so a reader fully understands what the opportunity
+     is and how to act on it.
+  3. Writes a new scholarship-<slug>.html detail page (same template as
+     every other scholarship on the site) and appends a structured entry
+     to scholarships.json, which drives the filterable Scholarships hub
+     (scholarships.html) — this is a dedicated, SEO-optimized directory
+     page, not a blog post.
 
 What this deliberately does NOT do: publish anything. It's meant to run
-inside a GitHub Action that commits the new file to a branch and opens a
+inside a GitHub Action that commits the new files to a branch and opens a
 pull request — a human still reviews the deadline/eligibility/link
 against the official source before it goes live. Scholarship details are
 exactly the kind of fact that's costly to get wrong (a reader could miss
 a real deadline because of an error in an unreviewed auto-post), so this
 script always leaves a clear "verify before merging" trail: every
-generated post carries a visible notice linking to the official source,
+generated page carries a visible notice linking to the official source,
 and the PR description (built in the GitHub Action) says the same thing.
 
 Requires:
@@ -37,62 +42,78 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-from site_template import render_post_page  # noqa: E402
+from site_template import render_scholarship_detail_page, SCHOLARSHIP_LEVELS  # noqa: E402
 
-POSTS_JSON = ROOT / "posts.json"
+SCHOLARSHIPS_JSON = ROOT / "scholarships.json"
 
 MODEL = os.environ.get("SCHOLARSHIP_POST_MODEL", "claude-sonnet-4-5")
 
-SYSTEM_PROMPT = """You are a careful research assistant for Jolsa Consulting, a \
+SYSTEM_PROMPT = f"""You are a careful research assistant for Jolsa Consulting, a \
 career/scholarship/study-abroad/visa-readiness consultancy serving Nigerian and \
-other global applicants. You are drafting ONE new blog post for their site about \
-currently open scholarships.
+other global applicants. You are adding ONE new entry to their Scholarships \
+directory page — a dedicated, filterable listing of real scholarship \
+opportunities (not a blog post).
 
 Hard rules:
-- Only include scholarships whose application deadline is in the future relative \
-to today's date, and that you found described on what looks like an official or \
+- Cover exactly ONE scholarship per run, currently open for applications OR \
+opening within the next 60 days, with a deadline in the future relative to \
+today's date.
+- Only use a scholarship you found described on what looks like an official or \
 highly reputable source (the scholarship provider's own site, a university, a \
-government/embassy program, or a well-established scholarship database). Cite the \
-official application URL for each one.
+government/embassy program, or a well-established scholarship database). You \
+MUST cite the official application/info URL.
 - Do not invent, estimate, or guess at deadlines, amounts, or eligibility \
 criteria. If you are not confident of a detail from your search results, leave it \
 out rather than filling it in.
-- Cover 1 to 3 scholarships (quality over quantity). Prefer scholarships relevant \
-to Nigerian/African applicants where possible, but broaden if nothing strong is \
-open for that group right now.
-- Do not repeat any scholarship already covered in the site's recent posts (a list \
-of recent post titles is provided below) unless there is a genuinely new detail \
-(e.g. deadline extended).
+- Do not repeat any scholarship already on the site (a list of recent titles is \
+provided below) unless there is a genuinely new detail (e.g. deadline extended \
+for a new cycle) — in that case treat it as a new entry with a distinct slug.
+- Prefer scholarships relevant to Nigerian/African applicants where possible, but \
+broaden if nothing strong is open for that group right now.
+- Write body_html so a reader fully understands the opportunity without leaving \
+the page: what it is, what it covers, who is eligible, the timeline, how to \
+apply step by step, application tips, and 1-2 FAQs. This should read like a \
+clear, complete explainer (similar in thoroughness to sites like \
+scholarshipregion.com), not a short teaser.
 - Tone: match Jolsa Consulting's existing voice — direct, practical, no hype, no \
 promises of admission/funding outcomes. Short paragraphs, scannable structure.
 
 Output format: respond with ONLY a single JSON object (no markdown fences, no \
 commentary before or after), with exactly these keys:
-{
-  "title": "...",                # Post title, specific (mentions the scholarship name/theme), not generic
-  "slug": "...",                 # lowercase-hyphenated, starts with "blog-", e.g. "blog-daad-2027-deadline"
-  "category": "...",             # short label e.g. "Scholarships"
-  "meta_description": "...",     # <160 chars, plain description
-  "read_time_minutes": 0,        # integer estimate
-  "body_html": "...",            # inner HTML for the article body — see structure below
-  "sources": ["https://...", "..."]   # the official URL(s) for each scholarship mentioned
-}
+{{
+  "title": "...",                 # e.g. "DAAD Scholarship 2027 (Germany, Fully Funded Master's)"
+  "slug": "...",                  # lowercase-hyphenated, no "blog-"/"scholarship-" prefix, e.g. "daad-scholarship-2027"
+  "level": ["..."],               # subset of {SCHOLARSHIP_LEVELS!r}
+  "country": "...",               # host country, or "Global" if multiple/not location-specific
+  "funding_type": "...",          # e.g. "Fully Funded" or "Partial Funding"
+  "deadline": "YYYY-MM-DD",       # application deadline
+  "status": "...",                # "open" if applications are open now, "upcoming" if opening later
+  "summary": "...",               # 1-2 sentence plain summary for the card, no HTML
+  "meta_description": "...",      # <160 chars, plain description for SEO
+  "funder": "...",                # the organization funding/running it
+  "official_url": "https://...",  # the single best official page to link as the source
+  "sources": ["https://...", "..."],   # all official URL(s) you verified facts against
+  "body_html": "..."              # inner HTML for the detail page body — see structure below
+}}
 
 body_html structure: valid HTML fragment using only these tags: <p>, <h2>, <ul>, \
-<li>, <strong>, <a>. Start with a <p class="post-meta"> line stating the category \
-and read time, like existing posts do. For each scholarship covered, use an <h2> \
-with the scholarship name, then a <p> summary, then a <ul> with <li> items for \
-Deadline, Eligibility, Funding covers, and How to apply (with an <a \
-href="OFFICIAL_URL" target="_blank" rel="noopener noreferrer"> link to the \
-official page). End with a <p> reminding readers to confirm every detail on the \
-official page before applying, since deadlines can move. Do not use <h1> (the \
-page template supplies its own)."""
+<ol>, <li>, <strong>, <a>, and a closing <div class="source-callout"> block. \
+Structure: <h2>What is [name]?</h2> overview paragraph(s); <h2>What does it \
+cover?</h2> with a <ul>; <h2>Who is eligible?</h2> with a <ul>; <h2>Application \
+timeline</h2> with a <ul> of dated milestones (or a single deadline paragraph if \
+that's all that's confirmed); <h2>How to apply</h2> as an <ol> of steps; \
+<h2>Application tips</h2> with a <ul>; <h2>FAQs</h2> with a couple of <p><strong> \
+question</strong> answer</p> pairs; and finally a \
+<div class="source-callout">Always verify current dates and eligibility directly \
+on the official [Name] website: <a href="OFFICIAL_URL" target="_blank" \
+rel="noopener noreferrer">official link text</a>.</div>. Do not use <h1> (the page \
+template supplies its own)."""
 
 
 def load_recent_titles(limit=15):
-    data = json.loads(POSTS_JSON.read_text(encoding="utf-8"))
-    posts = sorted(data["posts"], key=lambda p: p["date"], reverse=True)
-    return [p["title"] for p in posts[:limit]]
+    data = json.loads(SCHOLARSHIPS_JSON.read_text(encoding="utf-8"))
+    items = sorted(data["scholarships"], key=lambda s: s["date_posted"], reverse=True)
+    return [s["title"] for s in items[:limit]]
 
 
 def call_claude(today_str, recent_titles):
@@ -100,10 +121,11 @@ def call_claude(today_str, recent_titles):
 
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
     user_prompt = (
-        f"Today's date is {today_str}. Recent post titles already on the site "
+        f"Today's date is {today_str}. Scholarships already on the site "
         f"(avoid duplicating these): {json.dumps(recent_titles)}\n\n"
-        "Search for scholarships that are currently open for applications and "
-        "draft the post as specified in your instructions."
+        "Search for one scholarship that is currently open (or opening within "
+        "60 days) for applications and draft the entry as specified in your "
+        "instructions."
     )
 
     response = client.messages.create(
@@ -130,8 +152,7 @@ def extract_json(raw_text):
 
 
 def slugify_fallback(title):
-    slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
-    return f"blog-{slug[:60]}"
+    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:60]
 
 
 def main():
@@ -144,63 +165,69 @@ def main():
     raw = call_claude(today_str, recent_titles)
     result = extract_json(raw)
 
-    required = {"title", "slug", "category", "meta_description", "body_html", "sources"}
+    required = {
+        "title", "slug", "level", "country", "funding_type", "deadline",
+        "status", "summary", "meta_description", "funder", "official_url",
+        "sources", "body_html",
+    }
     missing = required - result.keys()
     if missing:
         raise SystemExit(f"ERROR: model output missing keys: {missing}")
 
-    if not result["sources"]:
-        raise SystemExit("ERROR: model returned no source URLs — refusing to publish a draft with no citations.")
+    if not result["sources"] or not result["official_url"]:
+        raise SystemExit("ERROR: model returned no source URL — refusing to publish an entry with no citation.")
+
+    bad_levels = [lvl for lvl in result["level"] if lvl not in SCHOLARSHIP_LEVELS]
+    if bad_levels or not result["level"]:
+        raise SystemExit(f"ERROR: model returned invalid level(s): {result.get('level')}")
+
+    if result["status"] not in ("open", "upcoming"):
+        raise SystemExit(f"ERROR: model returned invalid status: {result.get('status')!r} (expected 'open' or 'upcoming')")
 
     slug = result["slug"] or slugify_fallback(result["title"])
-    if not slug.startswith("blog-"):
-        slug = "blog-" + slug
-    out_path = ROOT / f"{slug}.html"
-    if out_path.exists():
+    slug = re.sub(r"^(blog-|scholarship-)+", "", slug)
+    detail_path = ROOT / f"scholarship-{slug}.html"
+    if detail_path.exists():
         slug = f"{slug}-{today_str}"
-        out_path = ROOT / f"{slug}.html"
+        detail_path = ROOT / f"scholarship-{slug}.html"
 
-    post_meta = {
+    entry = {
         "slug": slug,
         "title": result["title"],
-        "category": result["category"],
+        "level": result["level"],
+        "country": result["country"],
+        "funding_type": result["funding_type"],
+        "deadline": result["deadline"],
+        "date_posted": today_str,
+        "status": result["status"],
+        "summary": result["summary"],
         "meta_description": result["meta_description"],
+        "official_url": result["official_url"],
+        "funder": result["funder"],
+        "source": "auto",
+        "sources_cited": result["sources"],
     }
-    html = render_post_page(post_meta, result["body_html"])
-    out_path.write_text(html, encoding="utf-8")
-    print(f"Wrote {out_path.name}")
 
-    # Append to posts.json
-    data = json.loads(POSTS_JSON.read_text(encoding="utf-8"))
-    data["posts"].append(
-        {
-            "slug": slug,
-            "title": result["title"],
-            "category": result["category"],
-            "meta_description": result["meta_description"],
-            "excerpt": result["meta_description"],
-            "date": today_str,
-            "source": "auto",
-            "sources_cited": result["sources"],
-        }
+    html = render_scholarship_detail_page(entry, result["body_html"])
+    detail_path.write_text(html, encoding="utf-8")
+    print(f"Wrote {detail_path.name}")
+
+    # Append to scholarships.json
+    data = json.loads(SCHOLARSHIPS_JSON.read_text(encoding="utf-8"))
+    data["scholarships"].append(entry)
+    SCHOLARSHIPS_JSON.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    POSTS_JSON.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("Updated posts.json")
+    print("Updated scholarships.json")
 
     # Emit info for the GitHub Action to use in the PR title/body.
-    print(f"::set-output name=slug::{slug}")
-    print(f"::set-output name=title::{result['title']}")
     sources_line = "\n".join(f"- {u}" for u in result["sources"])
-    summary = (
-        f"POST_TITLE={result['title']}\n"
-        f"POST_SLUG={slug}\n"
-        f"POST_SOURCES<<EOF\n{sources_line}\nEOF\n"
-    )
     gh_output = os.environ.get("GITHUB_OUTPUT")
     if gh_output:
         with open(gh_output, "a", encoding="utf-8") as f:
             f.write(f"slug={slug}\n")
             f.write(f"title={result['title']}\n")
+            f.write(f"deadline={result['deadline']}\n")
 
 
 if __name__ == "__main__":

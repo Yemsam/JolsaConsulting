@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse fully funded and partially funded scholarships for undergraduate, master's, PhD, and fellowship applicants. Filter by level, country, and date posted. Updated weekly."
+    />
+    <title>Scholarships | Fully Funded Opportunities by Level & Country | Jolsa Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <link rel="canonical" href="https://jolsaconsulting.com/scholarships.html" />
+    <meta property="og:site_name" content="Jolsa Consulting" />
+    <meta property="og:title" content="Scholarships | Fully Funded Opportunities by Level & Country" />
+    <meta property="og:description" content="Browse fully funded and partially funded scholarships for undergraduate, master's, PhD, and fellowship applicants. Filter by level, country, and date posted. Updated weekly." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jolsaconsulting.com/scholarships.html" />
+    <meta property="og:image" content="https://jolsaconsulting.com/img/jolsa-consulting-banner.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Scholarships | Fully Funded Opportunities by Level & Country" />
+    <meta name="twitter:description" content="Browse fully funded and partially funded scholarships for undergraduate, master's, PhD, and fellowship applicants. Filter by level, country, and date posted. Updated weekly." />
+    <meta name="twitter:image" content="https://jolsaconsulting.com/img/jolsa-consulting-banner.png" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Scholarships",
+  "description": "Browse fully funded and partially funded scholarships for undergraduate, master's, PhD, and fellowship applicants.",
+  "url": "https://jolsaconsulting.com/scholarships.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Jolsa Consulting",
+    "url": "https://jolsaconsulting.com/"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often is this scholarship page updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New scholarship opportunities are researched and added weekly. Every listing links to its official source so you can verify deadlines and requirements directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free to browse and apply to these scholarships?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, browsing this page is free and every listed scholarship is free to apply to directly through its official provider. Jolsa Consulting also offers optional paid application support (essays, SOPs, and full application review) if you want expert help."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know a scholarship listing is legitimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every scholarship on this page links to its official provider page (government body, university, or foundation). Always complete your application on the official site, never through a third party asking for payment to 'process' your application."
+      }
+    }
+  ]
+}
+    </script>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="img/icons/icon-192.png" />
+    <meta name="theme-color" content="#071426" />
+  </head>
+  <body>
+    <header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="img/logo.png" alt="Jolsa Consulting" />
+  </a>
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+  >
+    &#9776;
+  </button>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="services.html">Services</a>
+    <a href="scholarships.html" aria-current="page">Scholarships</a>
+    <a href="digital-products.html">Products</a>
+    <a href="study-abroad-assessment.html">Free Assessment</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html" class="nav-cta">Book now</a>
+  </nav>
+</header>
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Scholarships</p>
+        <h1>Find Fully Funded Scholarships You Can Actually Apply To</h1>
+        <p>
+          A researched, regularly updated directory of real scholarship
+          opportunities &mdash; undergraduate, master's, PhD, and
+          fellowships &mdash; each one linking straight to its official
+          source so you know exactly what it is, who it's for, and how to
+          apply.
+        </p>
+      </section>
+
+      <section class="section" id="scholarship-directory">
+        <form class="scholarship-filters" id="scholarship-filters" aria-label="Filter scholarships">
+          <div class="filter-field">
+            <label for="filter-level">Level</label>
+            <select id="filter-level" name="level">
+              <option value="all">All levels</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Masters">Masters</option>
+              <option value="PhD">PhD</option>
+              <option value="Fellowships">Fellowships</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-country">Country</label>
+            <select id="filter-country" name="country">
+              <option value="all">All countries</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="Germany">Germany</option>
+              <option value="Australia">Australia</option>
+              <option value="Global">Global / Multiple countries</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-sort">Sort by date posted</label>
+            <select id="filter-sort" name="sort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="deadline">Deadline (soonest first)</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button type="button" class="filter-reset" id="filter-reset">Reset filters</button>
+          </div>
+        </form>
+
+        <p class="filter-count" id="filter-count" aria-live="polite">
+          Showing <strong id="filter-count-num">2</strong> scholarships
+        </p>
+
+        <div class="card-grid three" id="scholarship-grid">
+<!-- SCHOLARSHIPS:START (auto-generated by scripts/build_scholarships_index.py — do not hand-edit) -->
+          <article class="mini-card scholarship-card" data-level="Masters" data-country="United Kingdom" data-deadline="2026-10-06" data-posted="2026-08-27">
+            <div class="tag-row">
+              <span class="tag tag-status-open">Applications open</span>
+              <span class="tag">Fully Funded</span>
+              <span class="tag">Masters</span>
+              <span class="tag">United Kingdom</span>
+            </div>
+            <h2>Chevening Scholarship 2027 (UK, Fully Funded Master's)</h2>
+            <p>The UK government's flagship global scholarship funds a one-year taught master's degree at any UK university, covering tuition, a monthly stipend, airfare, and visa costs.</p>
+            <p class="deadline-row">Deadline: <strong>2026-10-06</strong></p>
+            <a class="btn primary" href="scholarship-chevening-scholarship-2027.html">View details &amp; how to apply</a>
+          </article>
+          <article class="mini-card scholarship-card" data-level="Masters PhD" data-country="United Kingdom" data-deadline="2026-12-08" data-posted="2026-08-27">
+            <div class="tag-row">
+              <span class="tag tag-status-closing">Opens soon</span>
+              <span class="tag">Fully Funded</span>
+              <span class="tag">Masters/PhD</span>
+              <span class="tag">United Kingdom</span>
+            </div>
+            <h2>Gates Cambridge Scholarship 2027/28 (UK, Fully Funded PhD & Master's)</h2>
+            <p>A full-cost scholarship for outstanding applicants from outside the UK to pursue a full-time postgraduate degree at the University of Cambridge, covering tuition, maintenance, and more. Applications reopen in September 2026 for 2027/28 entry.</p>
+            <p class="deadline-row">Deadline: <strong>2026-12-08</strong></p>
+            <a class="btn primary" href="scholarship-gates-cambridge-scholarship-2027.html">View details &amp; how to apply</a>
+          </article>
+          <!-- SCHOLARSHIPS:END -->
+        </div>
+
+        <p class="no-results" id="no-results" hidden>
+          No scholarships match those filters right now. Try a broader
+          search, or reset the filters &mdash; new opportunities are added
+          weekly.
+        </p>
+      </section>
+
+      <section class="section cream">
+        <div class="section-heading">
+          <p class="eyebrow">FAQs</p>
+          <h2>Common questions about this page</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How often is this scholarship page updated?</summary>
+            <p>
+              New scholarship opportunities are researched and added
+              weekly. Every listing links to its official source so you can
+              verify deadlines and requirements directly.
+            </p>
+          </details>
+          <details>
+            <summary>Is it free to browse and apply to these scholarships?</summary>
+            <p>
+              Yes, browsing this page is free and every listed scholarship
+              is free to apply to directly through its official provider.
+              Jolsa Consulting also offers optional paid application
+              support (essays, SOPs, and full application review) if you
+              want expert help.
+            </p>
+          </details>
+          <details>
+            <summary>How do I know a scholarship listing is legitimate?</summary>
+            <p>
+              Every scholarship on this page links to its official provider
+              page (government body, university, or foundation). Always
+              complete your application on the official site, never through
+              a third party asking for payment to "process" your
+              application.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Need more support?</p>
+          <h2>Get expert help with your scholarship application</h2>
+          <p>
+            Essays, personal statements, referee coordination, and full
+            application review &mdash; so your application does justice to
+            your story.
+          </p>
+        </div>
+        <div class="button-row center">
+          <a class="btn primary" href="scholarship.html">Get application support</a>
+          <a class="btn secondary" href="study-abroad-assessment.html">Take the free assessment</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+  <div class="footer-main">
+    <div>
+        <a class="brand" href="index.html">
+          <img src="img/logo.png" class="footer-logo" alt="Jolsa Consulting" />
+        </a>
+      <p>
+        Career, scholarship, study abroad, and visa-readiness support for
+        ambitious applicants.
+      </p>
+    </div>
+    <div class="footer-links">
+      <a href="study-abroad-assessment.html">Free Study-Abroad Assessment</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book consultation</a>
+      <a href="privacy.html">Privacy policy</a>
+    </div>
+    <div class="footer-socials" aria-label="Social media links">
+      <a class="footer-social-link" href="https://www.instagram.com/jolsaconsulting" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.75-3.1a1.05 1.05 0 1 1-1.05 1.05 1.05 1.05 0 0 1 1.05-1.05z"
+          />
+        </svg>
+      </a>
+      <a class="footer-social-link" href="https://www.facebook.com/JolsaConsulting" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.2-1.5 1.6-1.5h1.7V5c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V11H7v3h2.8v8h3.7z"
+          />
+        </svg>
+      </a>
+      <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M6.9 21H3.3V8.9h3.6V21zM5.1 7.3A2.1 2.1 0 1 1 5.1 3a2.1 2.1 0 0 1 0 4.3zM21 21h-3.6v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H9.5V8.9H13v1.7h.1c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V21z"
+          />
+        </svg>
+      </a>
+      <a class="footer-social-link" href="https://www.tiktok.com/@jolsa.consulting" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M16.6 3c.3 2.5 1.8 4.1 4.1 4.3v3.4a7.4 7.4 0 0 1-4-1.2v5.8c0 3.6-2.5 5.9-6 5.9a5.7 5.7 0 0 1-5.8-5.7c0-3.4 2.7-5.8 6.4-5.6v3.5c-1.7-.3-3 .6-3 2.1 0 1.3 1 2.2 2.3 2.2 1.5 0 2.4-.9 2.4-2.8V3h3.6z"
+          />
+        </svg>
+      </a>
+      <a class="footer-social-link" href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M23 12c0 2.4-.3 4.1-.6 5.2-.2.8-.8 1.4-1.6 1.6-1.1.3-2.8.6-8.8.6s-7.7-.3-8.8-.6c-.8-.2-1.4-.8-1.6-1.6C1.3 16.1 1 14.4 1 12s.3-4.1.6-5.2c.2-.8.8-1.4 1.6-1.6C4.3 4.9 6 4.6 12 4.6s7.7.3 8.8.6c.8.2 1.4.8 1.6 1.6.3 1.1.6 2.8.6 5.2zM10 15.5l6-3.5-6-3.5v7z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span
+      >&copy; <span data-current-year></span> Jolsa Consulting. All Rights
+      Reserved.</span
+    >
+    <span>
+      Designed by
+      <a
+        class="footer-designer"
+        href="https://yemsam.github.io/WealthHubTech-new/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Wealth Hub Tech</a
+      >
+    </span>
+  </div>
+</footer>
+    <a class="whatsapp-float" href="https://wa.me/34604958276" aria-label="Chat with Jolsa Consulting on WhatsApp">WhatsApp</a>
+    <script src="script.js" defer></script>
+    <script src="scholarships-filter.js" defer></script>
+  </body>
+</html>

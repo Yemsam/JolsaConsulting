@@ -1,0 +1,35 @@
+{
+  "$comment": "Source of truth for the Scholarships hub. scripts/build_scholarships_index.py reads this to regenerate scholarships.html's card grid and sitemap.xml's scholarship-page entries — do not hand-edit scholarships.html's card list directly, edit this file instead and re-run the build script (or push, which triggers it automatically). New entries are added automatically by scripts/generate_scholarship_post.py, which only ever adds scholarships it can cite from an official source — human review happens via the GitHub PR it opens before anything is merged to main. Every entry here must have a matching scholarship-<slug>.html detail page.",
+  "scholarships": [
+    {
+      "slug": "chevening-scholarship-2027",
+      "title": "Chevening Scholarship 2027 (UK, Fully Funded Master's)",
+      "level": ["Masters"],
+      "country": "United Kingdom",
+      "funding_type": "Fully Funded",
+      "deadline": "2026-10-06",
+      "date_posted": "2026-08-27",
+      "status": "open",
+      "summary": "The UK government's flagship global scholarship funds a one-year taught master's degree at any UK university, covering tuition, a monthly stipend, airfare, and visa costs.",
+      "meta_description": "Chevening Scholarship 2027: fully funded UK master's degree for future leaders. Deadline 6 October 2026. Eligibility, benefits, and how to apply.",
+      "official_url": "https://www.chevening.org/scholarships/application-timeline/",
+      "funder": "UK Foreign, Commonwealth & Development Office",
+      "source": "manual"
+    },
+    {
+      "slug": "gates-cambridge-scholarship-2027",
+      "title": "Gates Cambridge Scholarship 2027/28 (UK, Fully Funded PhD & Master's)",
+      "level": ["Masters", "PhD"],
+      "country": "United Kingdom",
+      "funding_type": "Fully Funded",
+      "deadline": "2026-12-08",
+      "date_posted": "2026-08-27",
+      "status": "upcoming",
+      "summary": "A full-cost scholarship for outstanding applicants from outside the UK to pursue a full-time postgraduate degree at the University of Cambridge, covering tuition, maintenance, and more. Applications reopen in September 2026 for 2027/28 entry.",
+      "meta_description": "Gates Cambridge Scholarship 2027/28: fully funded PhD and master's study at Cambridge for non-UK citizens. Applications open September 2026, deadlines from 14 October 2026.",
+      "official_url": "https://www.gatescambridge.org/apply/timeline/",
+      "funder": "Bill & Melinda Gates Foundation / University of Cambridge",
+      "source": "manual"
+    }
+  ]
+}

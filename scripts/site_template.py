@@ -26,12 +26,15 @@ HEADER = """    <header class="site-header">
   </button>
   <nav class="nav-links" aria-label="Main navigation">
     <a href="services.html">Services</a>
+    <a href="scholarships.html">Scholarships</a>
     <a href="digital-products.html">Products</a>
     <a href="study-abroad-assessment.html">Free Assessment</a>
     <a href="contact.html">Contact</a>
     <a href="booking.html" class="nav-cta">Book now</a>
   </nav>
 </header>"""
+
+NAV_SCHOLARSHIPS_LINK = '    <a href="scholarships.html">Scholarships</a>\n'
 
 FOOTER = """    <footer class="site-footer">
   <div class="footer-main">
@@ -203,3 +206,171 @@ def render_blog_card(post):
             </p>
             <a class="btn primary" href="{post['slug']}.html">Read post</a>
           </article>"""
+
+
+# ---------------------------------------------------------------------------
+# Scholarships hub (scholarships.html) + individual scholarship detail pages
+# ---------------------------------------------------------------------------
+
+SCHOLARSHIP_LEVELS = ["Undergraduate", "Masters", "PhD", "Fellowships"]
+
+
+def _status_label(status):
+    return {
+        "open": ("Applications open", "tag-status-open"),
+        "upcoming": ("Opens soon", "tag-status-closing"),
+        "closing": ("Closing soon", "tag-status-closing"),
+        "closed": ("Closed", "tag-status-closed"),
+    }.get(status, ("Applications open", "tag-status-open"))
+
+
+def render_scholarship_card(s):
+    """
+    s: dict with keys slug, title, level (list[str]), country, funding_type,
+       deadline (YYYY-MM-DD), date_posted (YYYY-MM-DD), status, summary.
+    Renders a fully static, pre-populated card. data-* attributes are what
+    scholarships-filter.js reads to filter/sort client-side — the markup
+    (and every word of text) is present in the raw HTML either way, so
+    search engines see the full list regardless of JS.
+    """
+    status_text, status_class = _status_label(s.get("status", "open"))
+    level_attr = " ".join(s["level"])
+    return f"""          <article class="mini-card scholarship-card" data-level="{level_attr}" data-country="{s['country']}" data-deadline="{s['deadline']}" data-posted="{s['date_posted']}">
+            <div class="tag-row">
+              <span class="tag {status_class}">{status_text}</span>
+              <span class="tag">{s['funding_type']}</span>
+              <span class="tag">{'/'.join(s['level'])}</span>
+              <span class="tag">{s['country']}</span>
+            </div>
+            <h2>{s['title']}</h2>
+            <p>{s['summary']}</p>
+            <p class="deadline-row">Deadline: <strong>{s['deadline']}</strong></p>
+            <a class="btn primary" href="scholarship-{s['slug']}.html">View details &amp; how to apply</a>
+          </article>"""
+
+
+def scholarship_ld_json(s):
+    url = f"{DOMAIN}/scholarship-{s['slug']}.html"
+    return f"""{{
+  "@context": "https://schema.org",
+  "@type": "MonetaryGrant",
+  "name": "{s['title']}",
+  "description": "{s['meta_description']}",
+  "url": "{url}",
+  "funder": {{
+    "@type": "Organization",
+    "name": "{s.get('funder', s['title'])}"
+  }},
+  "amount": {{
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "description": "{s['funding_type']}"
+  }},
+  "datePosted": "{s['date_posted']}",
+  "applicationDeadline": "{s['deadline']}"
+}}"""
+
+
+def render_scholarship_detail_page(s, body_html):
+    """
+    s: same dict shape as render_scholarship_card, plus meta_description
+       and official_url.
+    body_html: the article inner HTML (Overview, Benefits, Eligibility,
+               Timeline, How to Apply, Tips, FAQs, source callout — already
+               built by the caller).
+    """
+    url = f"{DOMAIN}/scholarship-{s['slug']}.html"
+    og_image = f"{DOMAIN}/img/jolsa-consulting-banner.png"
+    title_tag = f"{s['title']} | Jolsa Consulting"
+    status_text, status_class = _status_label(s.get("status", "open"))
+
+    return f"""<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{s['meta_description']}" />
+    <title>{title_tag}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="canonical" href="{url}" />
+    <meta property="og:site_name" content="Jolsa Consulting" />
+    <meta property="og:title" content="{title_tag}" />
+    <meta property="og:description" content="{s['meta_description']}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{url}" />
+    <meta property="og:image" content="{og_image}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{title_tag}" />
+    <meta name="twitter:description" content="{s['meta_description']}" />
+    <meta name="twitter:image" content="{og_image}" />
+    <script type="application/ld+json">
+{scholarship_ld_json(s)}
+    </script>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="img/icons/icon-192.png" />
+    <meta name="theme-color" content="#071426" />
+  </head>
+  <body>
+{HEADER}
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Scholarships</p>
+        <h1>{s['title']}</h1>
+        <p>{s['summary']}</p>
+      </section>
+      <section class="section">
+        <div class="scholarship-meta-box">
+          <div>
+            <span class="label">Status</span>
+            <span class="value"><span class="tag {status_class}">{status_text}</span></span>
+          </div>
+          <div>
+            <span class="label">Level</span>
+            <span class="value">{'/'.join(s['level'])}</span>
+          </div>
+          <div>
+            <span class="label">Country / Host</span>
+            <span class="value">{s['country']}</span>
+          </div>
+          <div>
+            <span class="label">Funding</span>
+            <span class="value">{s['funding_type']}</span>
+          </div>
+          <div>
+            <span class="label">Application Deadline</span>
+            <span class="value">{s['deadline']}</span>
+          </div>
+          <div>
+            <span class="label">Date Posted</span>
+            <span class="value">{s['date_posted']}</span>
+          </div>
+        </div>
+        <article class="article">
+{body_html}
+        </article>
+      </section>
+      <section class="section cream">
+        <div class="section-heading">
+          <p class="eyebrow">Want expert help with this application?</p>
+          <h2>Jolsa Consulting can help you build a stronger application</h2>
+          <p>
+            Our scholarship application support covers essays, personal
+            statements, referee coordination, and full application review.
+          </p>
+        </div>
+        <div class="button-row center">
+          <a class="btn primary" href="scholarship.html">Get application support</a>
+          <a class="btn secondary" href="scholarships.html">Browse more scholarships</a>
+        </div>
+      </section>
+    </main>
+{FOOTER}
+{WHATSAPP_FLOAT}
+    <script src="script.js" defer></script>
+  </body>
+</html>
+"""
