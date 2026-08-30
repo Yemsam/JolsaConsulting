@@ -58,10 +58,15 @@ Hard rules:
 - Cover exactly ONE scholarship per run, currently open for applications OR \
 opening within the next 60 days, with a deadline in the future relative to \
 today's date.
-- Only use a scholarship you found described on what looks like an official or \
-highly reputable source (the scholarship provider's own site, a university, a \
-government/embassy program, or a well-established scholarship database). You \
-MUST cite the official application/info URL.
+- You may use scholarship aggregator/roundup sites (e.g. scholarshipregion.com, \
+opportunitydesk.org, and similar) purely to discover WHICH scholarships are \
+currently being talked about — they are a lead, not a source. Every fact you \
+publish (deadline, amount, eligibility, how to apply) MUST come from, and be \
+cited to, the scholarship's own official page (the provider's own site, a \
+university, a government/embassy program) — never copy or closely paraphrase \
+an aggregator site's wording or structure. If you cannot find the official page \
+for a scholarship you noticed on an aggregator, skip it rather than writing from \
+the aggregator alone.
 - Do not invent, estimate, or guess at deadlines, amounts, or eligibility \
 criteria. If you are not confident of a detail from your search results, leave it \
 out rather than filling it in.
