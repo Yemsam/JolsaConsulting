@@ -4,7 +4,9 @@
     {
       "slug": "chevening-scholarship-2027",
       "title": "Chevening Scholarship 2027 (UK, Fully Funded Master's)",
-      "level": ["Masters"],
+      "level": [
+        "Masters"
+      ],
       "country": "United Kingdom",
       "funding_type": "Fully Funded",
       "deadline": "2026-10-06",
@@ -19,7 +21,10 @@
     {
       "slug": "gates-cambridge-scholarship-2027",
       "title": "Gates Cambridge Scholarship 2027/28 (UK, Fully Funded PhD & Master's)",
-      "level": ["Masters", "PhD"],
+      "level": [
+        "Masters",
+        "PhD"
+      ],
       "country": "United Kingdom",
       "funding_type": "Fully Funded",
       "deadline": "2026-12-08",
@@ -30,6 +35,27 @@
       "official_url": "https://www.gatescambridge.org/apply/timeline/",
       "funder": "Bill & Melinda Gates Foundation / University of Cambridge",
       "source": "manual"
+    },
+    {
+      "slug": "daad-scholarship-2027-germany-masters",
+      "title": "DAAD Scholarship 2027 (Germany, Fully Funded Master's)",
+      "level": [
+        "Masters"
+      ],
+      "country": "Germany",
+      "funding_type": "Fully Funded",
+      "deadline": "2026-10-31",
+      "date_posted": "2026-08-31",
+      "status": "open",
+      "summary": "The DAAD Study Scholarship funds international graduates to pursue Master's degrees at German universities, covering monthly stipend, insurance, travel, and study allowance for 10-24 months starting October 2027.",
+      "meta_description": "DAAD Study Scholarship 2027: Fully funded Master's in Germany with €992/month stipend, insurance, travel allowance. Deadline Oct-Nov 2026. Open to all disciplines.",
+      "official_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200",
+      "funder": "German Academic Exchange Service (DAAD)",
+      "source": "auto",
+      "sources_cited": [
+        "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200",
+        "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
+      ]
     }
   ]
 }
