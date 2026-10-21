@@ -1,0 +1,33 @@
+{
+  "id": "germany-cgiar-science-and-impact-hub-scholarship-2027-fully-funded",
+  "discovery_title": "Germany CGIAR Science and Impact Hub Scholarship 2027 | Fully Funded",
+  "discovery_url": "https://www.scholarshipregion.com/germany-cgiar-science-and-impact-hub-scholarship/",
+  "checked_at": "2026-10-21",
+  "reviewed": false,
+  "sources": [
+    {
+      "url": "https://hub.landscapealliance.org/phd-research-scholarship/application",
+      "label": "Provider information page",
+      "score": 15,
+      "via": "https://scholarsregion.com/scholarship/germany-cgiar-science-zpu13j",
+      "page_title": "Application",
+      "date_candidates": [
+        "30 November 2026"
+      ],
+      "mentions_scholarship": true
+    }
+  ],
+  "listing": {
+    "title": null,
+    "level": [],
+    "country": null,
+    "funding_type": null,
+    "deadline": null,
+    "status": null,
+    "summary": null,
+    "meta_description": null,
+    "funder": null,
+    "official_url": null,
+    "body_html": null
+  }
+}

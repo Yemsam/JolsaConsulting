@@ -1,0 +1,47 @@
+{
+  "id": "dartmouth-college-king-scholarship-in-united-states-2027-fully-funded",
+  "discovery_title": "Dartmouth College King Scholarship in United States 2027 | Fully Funded",
+  "discovery_url": "https://www.scholarshipregion.com/dartmouth-college-king-scholarship/",
+  "checked_at": "2026-10-21",
+  "reviewed": false,
+  "sources": [
+    {
+      "url": "https://students.dartmouth.edu/fgo/programs/king-scholars",
+      "label": "Apply Now",
+      "score": 10,
+      "via": "https://scholarsregion.com/scholarship/dartmouth-college-king-mvdh76",
+      "error": "Cannot establish robots.txt permission (HTTP 200)"
+    },
+    {
+      "url": "https://admissions.dartmouth.edu/apply-dartmouth",
+      "label": "Apply to Dartmouth",
+      "score": 10,
+      "via": "https://scholarsregion.com/scholarship/dartmouth-college-king-mvdh76",
+      "page_title": "Apply to Dartmouth",
+      "date_candidates": [],
+      "mentions_scholarship": true
+    },
+    {
+      "url": "https://admissions.dartmouth.edu/glossary-term/application",
+      "label": "Early Admission Decision",
+      "score": 3,
+      "via": "https://scholarsregion.com/scholarship/dartmouth-college-king-mvdh76",
+      "page_title": "Application",
+      "date_candidates": [],
+      "mentions_scholarship": false
+    }
+  ],
+  "listing": {
+    "title": null,
+    "level": [],
+    "country": null,
+    "funding_type": null,
+    "deadline": null,
+    "status": null,
+    "summary": null,
+    "meta_description": null,
+    "funder": null,
+    "official_url": null,
+    "body_html": null
+  }
+}

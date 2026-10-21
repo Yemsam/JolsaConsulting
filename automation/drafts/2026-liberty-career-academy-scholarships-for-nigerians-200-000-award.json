@@ -1,0 +1,35 @@
+{
+  "id": "2026-liberty-career-academy-scholarships-for-nigerians-200-000-award",
+  "discovery_title": "2026 Liberty Career Academy Scholarships for Nigerians | ₦200,000 Award",
+  "discovery_url": "https://www.scholarshipregion.com/liberty-career-academy-scholarship/",
+  "checked_at": "2026-10-21",
+  "reviewed": false,
+  "sources": [
+    {
+      "url": "https://lcaglobal.org/programmes/lca-scholarships/",
+      "label": "Apply Now",
+      "score": 10,
+      "via": "https://scholarsregion.com/scholarship/liberty-career-academy-hgqe3k",
+      "page_title": "LCA Scholarships",
+      "date_candidates": [
+        "October 20, 2026",
+        "November 03, 2026",
+        "October 22, 2025"
+      ],
+      "mentions_scholarship": true
+    }
+  ],
+  "listing": {
+    "title": null,
+    "level": [],
+    "country": null,
+    "funding_type": null,
+    "deadline": null,
+    "status": null,
+    "summary": null,
+    "meta_description": null,
+    "funder": null,
+    "official_url": null,
+    "body_html": null
+  }
+}
