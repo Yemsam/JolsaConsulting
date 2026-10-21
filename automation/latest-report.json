@@ -1,0 +1,99 @@
+{
+  "checked_at": "2026-10-21",
+  "discovery_source": "https://www.scholarshipregion.com",
+  "scanned": 6,
+  "drafts": [
+    {
+      "id": "2026-liberty-career-academy-scholarships-for-nigerians-200-000-award",
+      "title": "2026 Liberty Career Academy Scholarships for Nigerians | ₦200,000 Award",
+      "discovery_url": "https://www.scholarshipregion.com/liberty-career-academy-scholarship/"
+    },
+    {
+      "id": "germany-cgiar-science-and-impact-hub-scholarship-2027-fully-funded",
+      "title": "Germany CGIAR Science and Impact Hub Scholarship 2027 | Fully Funded",
+      "discovery_url": "https://www.scholarshipregion.com/germany-cgiar-science-and-impact-hub-scholarship/"
+    },
+    {
+      "id": "dartmouth-college-king-scholarship-in-united-states-2027-fully-funded",
+      "title": "Dartmouth College King Scholarship in United States 2027 | Fully Funded",
+      "discovery_url": "https://www.scholarshipregion.com/dartmouth-college-king-scholarship/"
+    }
+  ],
+  "skipped": [],
+  "errors": [
+    {
+      "url": "https://www.scholarshipregion.com/politecnico-di-milano-scholarships/",
+      "reason": "No readable scholarship source; requires manual research",
+      "sources": [
+        {
+          "url": "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/borse-di-studio/Merit_Based_Call_For_Applications_a.y._2027-2028.pdf",
+          "label": "Apply Now",
+          "score": 10,
+          "via": "https://scholarsregion.com/scholarship/politecnico-di-milano-cy9mjb",
+          "error": "Unsupported page type (PDFs need manual review)"
+        },
+        {
+          "url": "https://www.polimi.it/en/international-prospective-students/laurea-magistrale-programmes-equivalent-to-master-of-science/scholarships/merit-based-scholarships/",
+          "label": "Provider information page",
+          "score": 15,
+          "via": "https://scholarsregion.com/scholarship/politecnico-di-milano-cy9mjb",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://www.dottorato.polimi.it/en/prospective-phd-candidates/scholarships",
+          "label": "Provider information page",
+          "score": 15,
+          "via": "https://scholarsregion.com/scholarship/politecnico-di-milano-cy9mjb",
+          "error": "Cannot establish robots.txt permission (HTTP 403)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.scholarshipregion.com/european-masters-in-mechatronics-engineering-scholarship/",
+      "reason": "No readable scholarship source; requires manual research",
+      "sources": [
+        {
+          "url": "https://www.eu4m.eu/students/scholarships/erasmus-mundus",
+          "label": "Apply Now",
+          "score": 10,
+          "via": "https://scholarsregion.com/scholarship/european-masters-in-y21i8x",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://www.eu4m.eu/c/document_library/get_file?uuid=f35c47d6-e562-4d9a-96c5-7c92105c94cd&groupId=3207502",
+          "label": "Provider information page",
+          "score": 15,
+          "via": "https://scholarsregion.com/scholarship/european-masters-in-y21i8x",
+          "error": "fetch failed"
+        }
+      ]
+    },
+    {
+      "url": "https://www.scholarshipregion.com/swedish-institute-women-in-stem-scholarship/",
+      "reason": "No readable scholarship source; requires manual research",
+      "sources": [
+        {
+          "url": "https://si.se/en/apply/scholarships/pioneeringwomeninstem/",
+          "label": "Apply Now",
+          "score": 10,
+          "via": "https://scholarsregion.com/scholarship/swedish-institute-pioneering-s2s873",
+          "error": "Cannot establish robots.txt permission (HTTP 403)"
+        },
+        {
+          "url": "https://si.se/en/how-we-work/build-relations-and-networks/si-network-for-global-professionals/",
+          "label": "Provider information page",
+          "score": 15,
+          "via": "https://scholarsregion.com/scholarship/swedish-institute-pioneering-s2s873",
+          "error": "Cannot establish robots.txt permission (HTTP 403)"
+        },
+        {
+          "url": "https://si.se/en/si-alumni-network/",
+          "label": "Provider information page",
+          "score": 15,
+          "via": "https://scholarsregion.com/scholarship/swedish-institute-pioneering-s2s873",
+          "error": "Cannot establish robots.txt permission (HTTP 403)"
+        }
+      ]
+    }
+  ]
+}
