@@ -2,7 +2,7 @@ name: Weekly scholarship listing draft
 
 on:
   schedule:
-    - cron: "0 8 * * 1" # Monday, 08:00 UTC
+    - cron: "58 18 * * 3" # Temporary live test: Wednesday, 18:58 UTC (20:58 Paris on 21 October)
   workflow_dispatch: {}
 
 permissions:
