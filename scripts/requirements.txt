@@ -1,1 +1,2 @@
-anthropic>=0.40.0
+# Scholarship automation uses Node.js 22 and Python's standard library.
+# No third-party packages or paid AI API are required.

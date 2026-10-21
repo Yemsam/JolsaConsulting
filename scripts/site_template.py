@@ -10,6 +10,8 @@ Keeping this in one place means a future design tweak (e.g. a nav link
 change) only needs to happen here, not in every generated file.
 """
 
+import html
+
 DOMAIN = "https://jolsaconsulting.com"
 
 HEADER = """    <header class="site-header">
@@ -233,6 +235,9 @@ def render_scholarship_card(s):
     (and every word of text) is present in the raw HTML either way, so
     search engines see the full list regardless of JS.
     """
+    s = {key: html.escape(value, quote=True) if isinstance(value, str) else
+         [html.escape(v, quote=True) for v in value] if isinstance(value, list) else value
+         for key, value in s.items()}
     status_text, status_class = _status_label(s.get("status", "open"))
     level_attr = " ".join(s["level"])
     return f"""          <article class="mini-card scholarship-card" data-level="{level_attr}" data-country="{s['country']}" data-deadline="{s['deadline']}" data-posted="{s['date_posted']}">
