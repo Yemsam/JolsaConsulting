@@ -56,6 +56,71 @@
         "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200",
         "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
       ]
+    },
+    {
+      "slug": "aauw-international-fellowship-2027-stem-women",
+      "title": "AAUW International Fellowship 2027 (USA, STEM Master's & PhD for Women)",
+      "level": [
+        "Masters",
+        "PhD"
+      ],
+      "country": "United States",
+      "funding_type": "Partial Funding",
+      "deadline": "2026-09-17",
+      "date_posted": "2026-08-31",
+      "status": "open",
+      "summary": "The AAUW International Fellowship supports women pursuing full-time STEM graduate degrees at accredited U.S. institutions, with awards of $20,000 (Master's) or $25,000 (PhD) for the 2027–2028 academic year.",
+      "meta_description": "AAUW International Fellowship 2027 offers $20,000-$25,000 for international women pursuing STEM Master's or PhD degrees in the USA. Deadline: September 17, 2026.",
+      "official_url": "https://www.aauw.org/resources/programs/fellowships-grants/aauw-international-fellowships/",
+      "funder": "American Association of University Women (AAUW)",
+      "source": "auto",
+      "sources_cited": [
+        "https://www.aauw.org/resources/programs/fellowships-grants/aauw-international-fellowships/",
+        "https://www.scholars4dev.com/1877/aauw-international-fellowships-in-usa-for-women/"
+      ]
+    },
+    {
+      "slug": "commonwealth-masters-scholarships-2027-uk",
+      "title": "Commonwealth Master's Scholarships 2027/28 (UK, Fully Funded)",
+      "level": [
+        "Masters"
+      ],
+      "country": "United Kingdom",
+      "funding_type": "Fully Funded",
+      "deadline": "2026-10-20",
+      "date_posted": "2026-08-31",
+      "status": "upcoming",
+      "summary": "Commonwealth Master's Scholarships fund one-year taught Master's degrees at UK universities for candidates from low- and middle-income Commonwealth countries, covering tuition, living costs, flights, and more.",
+      "meta_description": "Commonwealth Master's Scholarships 2027/28 offer fully funded one-year Master's study in the UK for Commonwealth citizens. Applications open September 8, deadline October 20, 2026.",
+      "official_url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+      "funder": "Commonwealth Scholarship Commission (funded by UK Foreign, Commonwealth & Development Office)",
+      "source": "auto",
+      "sources_cited": [
+        "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+        "https://scholarshiproar.com/commonwealth-scholarship/"
+      ]
+    },
+    {
+      "slug": "rhodes-scholarship-2027-oxford",
+      "title": "Rhodes Scholarship 2027 (UK, Fully Funded Postgraduate at Oxford)",
+      "level": [
+        "Masters",
+        "PhD"
+      ],
+      "country": "United Kingdom",
+      "funding_type": "Fully Funded",
+      "deadline": "2026-10-07",
+      "date_posted": "2026-08-31",
+      "status": "open",
+      "summary": "The Rhodes Scholarship is the world's oldest international postgraduate award, funding outstanding students from around the globe to undertake full-time study at the University of Oxford. Deadlines vary by constituency.",
+      "meta_description": "Rhodes Scholarship 2027 funds full postgraduate study at Oxford for exceptional leaders worldwide. Fully funded. Deadlines vary by region; U.S. closes October 7, 2026.",
+      "official_url": "https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/",
+      "funder": "Rhodes Trust",
+      "source": "auto",
+      "sources_cited": [
+        "https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/",
+        "https://www.rhodeshouse.ox.ac.uk/about/latest-news/2026/june/applications-open-for-2027-cohort/"
+      ]
     }
   ]
 }
