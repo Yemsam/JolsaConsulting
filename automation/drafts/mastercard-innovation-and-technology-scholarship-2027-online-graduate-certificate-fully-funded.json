@@ -1,0 +1,48 @@
+{
+  "id": "mastercard-innovation-and-technology-scholarship-2027-online-graduate-certificate-fully-funded",
+  "discovery_title": "Mastercard Innovation and Technology Scholarship 2027 (Online Graduate Certificate) | Fully Funded",
+  "discovery_url": "https://www.scholarshipregion.com/mastercard-innovation-and-technology-scholarship/",
+  "checked_at": "2026-10-28",
+  "reviewed": false,
+  "sources": [
+    {
+      "url": "https://wpcarey.asu.edu/masters-programs/online-business-analytics",
+      "label": "MS Business Analytics",
+      "score": 3,
+      "page_title": "Online Master of Science in Business Analytics Online MS-BA",
+      "date_candidates": [
+        "April 1, 2027",
+        "July 1, 2027",
+        "July 15, 2027",
+        "July 1, 2026",
+        "December 15, 2026",
+        "April 15, 2027",
+        "October 29, 2026"
+      ],
+      "mentions_scholarship": true
+    },
+    {
+      "url": "https://degrees.asu.edu/masters-phd/major/ASU00/ESCOMSCMCS/computer-science-mcs",
+      "label": "MCS Computer Science",
+      "score": 3,
+      "page_title": "Computer Science, MCS",
+      "date_candidates": [
+        "January 21, 2026"
+      ],
+      "mentions_scholarship": true
+    }
+  ],
+  "listing": {
+    "title": null,
+    "level": [],
+    "country": null,
+    "funding_type": null,
+    "deadline": null,
+    "status": null,
+    "summary": null,
+    "meta_description": null,
+    "funder": null,
+    "official_url": null,
+    "body_html": null
+  }
+}
